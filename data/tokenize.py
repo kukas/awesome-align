@@ -8,7 +8,13 @@ def get_tokenizer(language):
     if language == "uk":
         return tokenize_uk.tokenize_words
     elif language == "cs":
-        return mosestokenizer.MosesTokenizer('cs')
+        moses = mosestokenizer.MosesTokenizer('cs', no_escape=True) # Turn off html escaping
+        def _tokenize(line):
+            output = moses(line)
+            # Replace @-@ with -, Moses adds the @ symbols because of aggressive hyphen splitting
+            output = [x if x != "@-@" else "-" for x in output]
+            return output
+        return _tokenize
     else:
         raise ValueError(f"Unknown language {language}")
 

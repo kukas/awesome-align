@@ -1,7 +1,9 @@
 #!/bin/bash
-# TODO: tokenize
-# to combine line by line
-# :|paste -d ' ||| ' full8M.cs.train - - - - full8M.uk.train  > full8M.csuk.train 
+# create valid and train splits
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 filename"
+    exit 1
+fi
 filename=$1
 lines=$(wc -l < $filename)
 echo "$lines lines"
