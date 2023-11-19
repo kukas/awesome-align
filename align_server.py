@@ -9,7 +9,7 @@ from flask_cors import CORS
 import sys
 from pprint import pprint
 
-from mosestokenizer import *
+from data.tokenize import get_tokenizer
 from awesome_aligner import AwesomeAligner
 
 # align_models_path = os.path.join(fast_align_dir, 'models')
@@ -26,10 +26,12 @@ from awesome_aligner import AwesomeAligner
 def create_app_csuk(test_config=None):
     # create and configure the app
     app = Flask(__name__)
+    app.json.ensure_ascii = False
+    app.json.mimetype = "application/json; charset=utf-8"
     CORS(app)
 
-    cs_tokenizer = MosesTokenizer('cs')
-    uk_tokenizer = MosesTokenizer('uk')
+    cs_tokenizer = get_tokenizer('cs')
+    uk_tokenizer = get_tokenizer('uk')
 
     app.logger.info("Loading awesome aligner...")
     csuk_aligner = AwesomeAligner(model_name_or_path="bert-base-multilingual-cased")
