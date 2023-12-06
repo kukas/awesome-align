@@ -157,5 +157,5 @@ class AwesomeAligner():
         #     merge_files(prob_writers)
         # if output_word_file is not None:
         #     merge_files(word_writers)
-        return all_alignments
+        return sorted(all_alignments)
 
