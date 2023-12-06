@@ -279,7 +279,7 @@ $radioframe = $frameright->Frame->pack(-fill,'x');
 $frameright->Button(-text,"Save", -command, \&save2,
 		    -activebackground,"blue"
 		    )->pack(-side,'top',-anchor,'n',-fill,'x',-ipady,20, -ipadx, 60, -expand, 1);
-$frameright->Label(-text => "k - down for English\ni - up for English\nl - down for Czech\no - up for Czech\n\nv - SURE connection\nc - POSSIBLE connection\nx - PHRASAL connection\n\nd - delete connection\n\nPageDown - next sentence\nPageUp - previous sentence\n\ns - save file\nq - save file and exit\n\n\n\n\n")->pack(-anchor, 'n', -side, 'top');
+$frameright->Label(-text => "k - down for Ukrainian\ni - up for Ukrainian\nl - down for Czech\no - up for Czech\n\nv - SURE connection\nc - POSSIBLE connection\nx - PHRASAL connection\n\nd - delete connection\n\nPageDown - next sentence\nPageUp - previous sentence\n\ns - save file\nq - save file and exit\n\n\n\n\n")->pack(-anchor, 'n', -side, 'top');
 
 $frameright->Label(-text => "  Sentence number:")->pack(-anchor, 's', -side, 'left');
 $frameright->Label(-textvariable => \$linenum)->pack(-side,'left');#->pack(-anchor, 's');
@@ -464,7 +464,7 @@ sub load_file1_into_memory {
       $sentence_name[1][$sentence_number]=$1;
     }
 #put sentence into memory    
-    if ($_=~/<english>(.*)<\/english>/) {
+    if ($_=~/<ukrainian>(.*)<\/ukrainian>/) {
       @{$whole_file1[$sentence_number]} = split(/ /, $1);
     }
   }
@@ -998,7 +998,7 @@ sub autocrosspair {
   $autopair_last_selected2++;
 }
 
-# This function creates two links to two Czech words, starting from one English
+# This function creates two links to two Czech words, starting from one Ukrainian
 sub autoczdouble {
   if (!defined $autopair_last_selected2 || !defined $autopair_last_selected1) {
     $info = "ERROR: Please use autopairing only after you have linked some words manually";
@@ -1012,8 +1012,8 @@ sub autoczdouble {
   con();
 }
 
-# This function creates a possible link between next English word and the next
-# Czech word. Moreover a regular link between the second following English word
+# This function creates a possible link between next Ukrainian word and the next
+# Czech word. Moreover a regular link between the second following Ukrainian word
 # and the Czech word is created.
 sub autoenprep {
   if (!defined $autopair_last_selected2 || !defined $autopair_last_selected1) {
@@ -2479,16 +2479,16 @@ sub save2{
     while ($sentence_name[1][$i])
     {
       print FH "<s id=\"" . $sentence_name[1][$i] . "\">\n";
-      print FH "  <english>" . join(" ", @{$whole_file1[$i]}) . "</english>\n";
+      print FH "  <ukrainian>" . join(" ", @{$whole_file1[$i]}) . "</ukrainian>\n";
       print FH "  <czech>" . join(" ", @{$whole_file2[$i]}) . "</czech>\n";
       
-      my $english_count = scalar @{$whole_file1[$i]};
+      my $ukrainian_count = scalar @{$whole_file1[$i]};
       my $czech_count = scalar @{$whole_file2[$i]};
      
       my $outprnt = "";
       foreach(@{$blinkarray[$i]}) {
         if ($_ =~ /(\d*) (\d*)/) {
-          if ($1 > $english_count or $2 > $czech_count) { print STDERR "Warning: connection out of bounds.\n"; }
+          if ($1 > $ukrainian_count or $2 > $czech_count) { print STDERR "Warning: connection out of bounds.\n"; }
 	      else { $outprnt .= " $1-$2"; }
         }
       }
@@ -2497,7 +2497,7 @@ sub save2{
       $outprnt = "";
       foreach(@{$possiblearray[$i]}) {
         if ($_ =~ /(\d*) (\d*)/) {
-          if ($1 > $english_count or $2 > $czech_count) { print STDERR "Warning: connection out of bounds.\n"; }
+          if ($1 > $ukrainian_count or $2 > $czech_count) { print STDERR "Warning: connection out of bounds.\n"; }
 	      else { $outprnt .= " $1-$2"; }
         }
       }
@@ -2506,7 +2506,7 @@ sub save2{
       $outprnt = "";
       foreach(@{$phrasalarray[$i]}) {
         if ($_ =~ /(\d*) (\d*)/) {
-          if ($1 > $english_count or $2 > $czech_count) { print STDERR "Warning: connection out of bounds.\n"; }
+          if ($1 > $ukrainian_count or $2 > $czech_count) { print STDERR "Warning: connection out of bounds.\n"; }
 	      else { $outprnt .= " $1-$2"; }
         }
       }
