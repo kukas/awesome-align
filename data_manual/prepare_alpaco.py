@@ -53,9 +53,14 @@ def convert_xlsx_to_xml(input_file, output_file, base_id):
 
     tree = ElementTree(sentences)
     tree_str = tostring(sentences, encoding="utf-8").decode("utf-8")
-    pretty_xml = minidom.parseString(tree_str).toprettyxml(indent="  ", encoding="utf-8")
+    pretty_xml = minidom.parseString(tree_str).toprettyxml(indent="  ")
 
-    with open(output_file, "wb") as xml_file:
+    with open(output_file, "w", encoding="utf-8") as xml_file:
+        # unescape the xml...
+        # the xml library escapes even the text inside the xml tags which
+        # is something we do not want
+        pretty_xml = pretty_xml.replace("&quot;", "\"")
+        # of course this can lead to invalid xml, caution!
         xml_file.write(pretty_xml)
 
 if __name__ == "__main__":
