@@ -4,6 +4,9 @@ from xml.dom import minidom
 import sys
 import os
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from data.tokenize import get_tokenizer
+
 def create_xml_element(tag, text):
     element = Element(tag)
     element.text = text
@@ -15,15 +18,27 @@ def convert_xlsx_to_xml(input_file, output_file, base_id):
 
     sentences = Element("sentences")
 
+    cs_tokenizer = get_tokenizer("cs")
+    uk_tokenizer = get_tokenizer("uk")
+
     for row_number, row in enumerate(sheet.iter_rows(min_row=1, max_col=sheet.max_column, values_only=True), start=1):
         lang1_text, lang2_text = row
         if lang1_text is None or lang2_text is None:
             continue
 
+        lang1_tokens = cs_tokenizer(lang1_text)
+        lang2_tokens = uk_tokenizer(lang2_text)
+        lang1_text_tokenized = " ".join(lang1_tokens)
+        lang2_text_tokenized = " ".join(lang2_tokens)
+
+        # check if the only difference between the original and tokenization is spaces
+        assert lang1_text_tokenized.replace(" ", "") == lang1_text.replace(" ", "")
+        assert lang2_text_tokenized.replace(" ", "") == lang2_text.replace(" ", "")
+
         s_element = Element("s", id=f"{base_id}-s{row_number}")
 
-        lang1_element = create_xml_element("czech", lang1_text)
-        lang2_element = create_xml_element("ukrainian", lang2_text)
+        lang1_element = create_xml_element("czech", lang1_text_tokenized)
+        lang2_element = create_xml_element("ukrainian", lang2_text_tokenized)
         sure_element = create_xml_element("sure", "")
         possible_element = create_xml_element("possible", "")
         phrasal_element = create_xml_element("phrasal", "")
