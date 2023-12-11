@@ -5,12 +5,14 @@ from flask import request
 from flask import Response
 from flask import jsonify
 from flask_cors import CORS
+from flask_api import status
 
 import sys
 from pprint import pprint
 
 from data.tokenize import get_tokenizer
 from awesome_aligner import AwesomeAligner
+from map_tokenizations import map_tokenization, granularize_tokenization
 
 # align_models_path = os.path.join(fast_align_dir, 'models')
 
@@ -46,26 +48,49 @@ def create_app_csuk(test_config=None):
     # info page
     @app.route('/info')
     def info():
-        return 'Word alignment server (FastAlign, model: {:s})'.format(align_model_type)
+        return 'Word alignment server (AwesomeAligner, model: {:s})'.format(align_model_type)
     
+    def tokenize_text(text, tokenizer):
+        normalize_spaces = " ".join(text.split())
+        return tokenizer(normalize_spaces)
+    
+    def compute_alignment(src_tokens, trg_tokens):
+        align = []
+        if len(src_tokens) > 0 and len(trg_tokens) > 0:
+            line = "{:s} ||| {:s}".format(" ".join(src_tokens), " ".join(trg_tokens))
+            align = csuk_aligner.align(line)
+        return align
+
     # align cs-uk
     @app.route('/align/cs-uk', methods=['POST'])
     def align_csuk():
         req_data = request.get_json()
 
+        # máme buď tokeny nebo text
+        # pokud máme text, tak tokenizujeme, alignujeme tyto tokenizace a vrátíme alignment s tokeny
+        # pokud máme tokeny, tak granularizujeme, alignujeme granulární tokenizace a mapujeme granulární tokeny na původní tokeny
+
         src_tokens = req_data.get('src_tokens')
         trg_tokens = req_data.get('trg_tokens')
-        if src_tokens is None:
-            src_tokens = cs_tokenizer(" ".join(req_data['src_text'].split()))
-        if trg_tokens is None:
-            trg_tokens = uk_tokenizer(" ".join(req_data['trg_text'].split()))
+        src_text = req_data.get('src_text')
+        trg_text = req_data.get('trg_text')
 
-        align = ''
-        if len(src_tokens) > 0 and len(trg_tokens) > 0:
-            line = "{:s} ||| {:s}".format(" ".join(src_tokens), " ".join(trg_tokens))
-            align = csuk_aligner.align(line)
-        
+        if src_text is not None and trg_text is not None:
+            src_tokens = tokenize_text(src_text, cs_tokenizer)
+            trg_tokens = tokenize_text(trg_text, uk_tokenizer)
+            align = compute_alignment(src_tokens, trg_tokens)
+        elif src_tokens is not None and trg_tokens is not None:
+            src_tokens_granular, src_mapping = granularize_tokenization(src_tokens, cs_tokenizer)
+            trg_tokens_granular, trg_mapping = granularize_tokenization(trg_tokens, uk_tokenizer)
+            print(src_tokens_granular, src_mapping)
+            print(trg_tokens_granular, trg_mapping)
+            align = compute_alignment(src_tokens_granular, trg_tokens_granular)
+            print(align)
+            align = map_tokenization(align, src_mapping, trg_mapping)
+            print(align)
+        else:
+            return "Supply either src_text and trg_text or src_tokens and trg_tokens", status.HTTP_400_BAD_REQUEST
+
         resp = { 'alignment': align, 'src_tokens': src_tokens, 'trg_tokens': trg_tokens }
         return jsonify(resp)
-
     return app
