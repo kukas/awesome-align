@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sentences>
+<s id="khan-s1">
+  <ukrainian>Обдумайте наступне : Уявіть дві кімнати , Bсередині кожної є перемикач .</ukrainian>
+  <czech>Uvažujme následující : představte si dvě místnosti a v každé z nich žárovku .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s2">
+  <ukrainian>В першій чоловік змінює положення вимикача за монетою :</ukrainian>
+  <czech>V první je muž , který zapíná žárovku podle toho , jak mu padne mince .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s3">
+  <ukrainian>якщо випадає орел - вмикає , якщо решка - вимикає .</ukrainian>
+  <czech>Hodí - li pannu , žárovku zapne , a hodí - li orla , žárovku vypne .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s4">
+  <ukrainian>В іншій жінка вмикає і вимикає світло довільно .</ukrainian>
+  <czech>Ve druhé místnosti zapíná žárovku žena podle slepého odhadu ,</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s5">
+  <ukrainian>Вона намагається відтворити результати підкидання монети .</ukrainian>
+  <czech>kterým se snaží napodobovat náhodnost hodu mince .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s6">
+  <ukrainian>Потім , ми засікаємо час .</ukrainian>
+  <czech>My poté zapneme časomíru a necháme muže</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s7">
+  <ukrainian>Перемикання робляться одночасно .</ukrainian>
+  <czech>a ženu současně přepínat své vypínače .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s8">
+  <ukrainian>Чи можете ви відрізнити , в якій кімнаті світлом керує підкидання монети ?</ukrainian>
+  <czech>Dá se určit , kterou žárovku rozsvěcujeme podle mince ?</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s9">
+  <ukrainian>Відповідь " ТАК " , але " ЯК ? "</ukrainian>
+  <czech>Odpověď zní ano . Ale podle čeho ?</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s10">
+  <ukrainian>Розпочнімо з розміщення всі позначок .</ukrainian>
+  <czech>Začněme tím , že si popíšeme srdce .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s11">
+  <ukrainian>Зверху кров потрапляє в праве передсердя , звідти - в правий шлуночок , потім - в легені ,</ukrainian>
+  <czech>Krev přichází do pravé síně , pokračuje do pravé komory a odtud do plic .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s12">
+  <ukrainian>повертається в ліве передсердя , а звідти - в лівий шлуночок .</ukrainian>
+  <czech>Poté se vrací do levé síně a z ní do levé komory .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s13">
+  <ukrainian>Це камери нашого серця .</ukrainian>
+  <czech>Toto jsou srdeční dutiny .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s14">
+  <ukrainian>Зверніть увагу на клапани , ми поговоримо про те , як через них проходить кров .</ukrainian>
+  <czech>Nyní se zaměřme na chlopně a jak nimi prochází krev .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s15">
+  <ukrainian>Розпочнімо з крові , що йде з правого передсердя ось цим шляхом в правий шлуночок .</ukrainian>
+  <czech>Začněme v pravé síni , odkud krev prochází do pravé komory .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s16">
+  <ukrainian>В той час , коли кров з правого передсердя переходить в правий шлуночок , кров з лівого передсердя переходить в лівий шлуночок .</ukrainian>
+  <czech>Ve stejné chvíli , kdy krev prochází z pravé síně do komory , tak krev z levé síně prochází do levé komory .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s17">
+  <ukrainian>Ви мабуть думаєте : " Як таке можливо ? " ,</ukrainian>
+  <czech>Jak je toto možné ?</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s18">
+  <ukrainian>" Як кров може бути в двох місцях водночас ? "</ukrainian>
+  <czech>Jak krev může být na dvou místech zároveň ?</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s19">
+  <ukrainian>Запам'ятайте , що кров постійно рухається через серце .</ukrainian>
+  <czech>Zapamatujte si , že krev v našem těle proudí neustále .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s20">
+  <ukrainian>Отже , у попередньому циклі ми мали певну кількість крові , що надійшла з легень , саме вона і виштовхується в лівий шлуночок .</ukrainian>
+  <czech>Takže zde je krev z předchozího cyklu , která se vrací z plic a přitéká do levé komory .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s21">
+  <ukrainian>У новому циклі ви маєте невелику кількість крові , що з правого передсердя надходить в правий шлуночок .</ukrainian>
+  <czech>V novém cyklu máte krev , která jde z pravé síně do pravé komory .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s22">
+  <ukrainian>Правий та лівий шлуночок одночасно наповнюються кров'ю .</ukrainian>
+  <czech>Tedy máte současně dvě dutiny plné krve – pravou a levou komoru .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s23">
+  <ukrainian>Для того , щоб кров потрапила в ці шлуночки , мають відкритися клапани .</ukrainian>
+  <czech>Aby se krev dostala do komor , je nutné , aby se chlopně otevřely .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s24">
+  <ukrainian>Позначмо всі клапани .</ukrainian>
+  <czech>Nyní si pojmenujme všechny chlopně .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s25">
+  <ukrainian>Це тристулковий клапан .</ukrainian>
+  <czech>Tady je trojcípá chlopeň .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s26">
+  <ukrainian>Тут у нас - клапан легеневої артерії .</ukrainian>
+  <czech>Tady nahoře je plicní chlopeň .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s27">
+  <ukrainian>З іншого боку у нас є мітральний клапан , що відділяє ліве передсердя від лівого шлуночка .</ukrainian>
+  <czech>Na druhé straně máme mitrální chlopeň , která rozděluje levou síň od levé komory .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s28">
+  <ukrainian>У нас є 2 акули . 1 , 2 .</ukrainian>
+  <czech>Byli 2 žraloci , 1 a 2 .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s29">
+  <ukrainian>І з'явилось ще 3 акули . 1,2,3 .</ukrainian>
+  <czech>Přišli 3 další tedy 1,2,3 .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s30">
+  <ukrainian>Скільки акул є разом ?</ukrainian>
+  <czech>Kolik žraloků tu je teď ?</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s31">
+  <ukrainian>Отже , тут у нас 2 акули .</ukrainian>
+  <czech>Takže jsou tu ti 2 co tu byli předtím .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s32">
+  <ukrainian>Додаємо 3 , які приплили пізніше .</ukrainian>
+  <czech>K tomu přičteme ty 3 , kteří přišli .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s33">
+  <ukrainian>Ото ж , 2 + 3</ukrainian>
+  <czech>Takže sečteme 2 a 3 žraloky .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s34">
+  <ukrainian>Скільки ж буде 2 + 3 ?</ukrainian>
+  <czech>A co je 2 plus 3 ?</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s35">
+  <ukrainian>2 + 3 = 5 .</ukrainian>
+  <czech>2 + 3 je 5 .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s36">
+  <ukrainian>2 + 3 = 5 , і ми можемо їх порахувати : 1,2,3,4,5 .</ukrainian>
+  <czech>můžete si to i spočítat . 1 , 2 , 3 , 4 , 5 .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="khan-s37">
+  <ukrainian>Давайте зробимо ще одну задачу .</ukrainian>
+  <czech>Pojďme si udělat ještě jeden příklad .</czech>
+  <sure></sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+</sentences>
