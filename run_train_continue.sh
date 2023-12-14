@@ -3,17 +3,18 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:2
+#SBATCH --constraint="gpuram48G|gpuram40G"
 #SBATCH --time=7-0
 #SBATCH -o /home/balhar/my-luster/awesome-align/training_logs/finetune_%j.out
 
 TRAIN_FILE=data/prepared_data/full8M.csuk.train
-OUTPUT_DIR=finetune/mbert_full8M_1epoch_fresh_run
+OUTPUT_DIR=finetune/mbert_full8M_2nd_epoch
 
 # source /home/balhar/my-luster/awesome-align/awesome_align_env/bin/activate
 
-awesome-train \
+ awesome-train \
     --output_dir=$OUTPUT_DIR \
-    --model_name_or_path=bert-base-multilingual-cased \
+    --model_name_or_path=finetune/mbert_full8M_1epoch \
     --extraction 'softmax' \
     --do_train \
     --train_tlm \
