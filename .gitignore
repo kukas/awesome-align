@@ -5,3 +5,6 @@ dist
 __pycache__
 cache
 finetune/
+awesome_align_env/
+outputs/
+data/prepared_data/

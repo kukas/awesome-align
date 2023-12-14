@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sentences>
+<s id="flores-s1">
+  <ukrainian>Зуби трицератопса могли розчавлювати не лише листя , а й навіть міцні гілки та коріння .</ukrainian>
+  <czech>Zuby triceratopse byly schopny rozkousat nejen listy , ale také například tvrdé větve a kořeny .</czech>
+  <sure>4-5 5-6 6-6 7-7 8-8 16-16 15-15 14-14 13-13 12-12 2-2 1-1 3-3 3-4</sure>
+  <possible>9-9 10-10</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s2">
+  <ukrainian>Деякі вчені вважають , що трицераптори їли сагову пальму – рослину , поширену у Крейдовому періоді .</ukrainian>
+  <czech>Někteří vědci si myslí , že Triceratopsové jedli cykasy , což je druh rostliny běžný pro období Křídy .</czech>
+  <sure>1-1 2-2 3-4 3-3 4-5 5-6 6-7 7-8 8-9 9-9 13-15 17-19 16-17 15-18</sure>
+  <possible>10-10 11-14 14-16</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s3">
+  <ukrainian>Ці рослини схожі на маленькі пальми з гострим колючим листям на верхівці .</ukrainian>
+  <czech>Tyto rostliny vypadají jako malá palma s korunou ostrých a špičatých listů .</czech>
+  <sure>1-1 2-2 7-7 13-13 3-3</sure>
+  <possible>5-5 6-6 8-9 9-11 10-12 4-4</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s4">
+  <ukrainian>Трицератопс міг користуватися своїм сильним дзьобом , щоб зривати листя , перш ніж їсти стовбур .</ukrainian>
+  <czech>Triceratops zřejmě používal silný zobák k tomu , aby z větví , jimiž se živil , nejprve stáhl listy .</czech>
+  <sure>1-1 7-8 8-9 10-19 15-11 16-20 13-17 12-17</sure>
+  <possible>5-4 6-5 3-3 9-18 11-16</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s5">
+  <ukrainian>Як гравітація Іо вплинула б на мене ?</ukrainian>
+  <czech>Jak by mě přitahovala gravitace měsíce Io ?</czech>
+  <sure>1-1 2-5 3-7 8-8 5-2 6-3 7-3</sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s6">
+  <ukrainian>Стоячи на поверхні Іо , ви будете важити менше , ніж на Землі .</ukrainian>
+  <czech>Pokud byste stáli na povrchu Io , vážili byste méně než na Zemi .</czech>
+  <sure>2-4 3-5 4-6 5-7 8-8 9-10 11-11 12-12 13-13 14-14</sure>
+  <possible>1-1 1-2 1-3 6-8 6-9 7-9</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s7">
+  <ukrainian>Людина , що важить 200 фунтів ( 90 кг ) на Землі , важила би приблизно 36 фунтів ( 16 кг ) на Іо .</ukrainian>
+  <czech>Člověk , který na zemi váží 200 liber ( 90 kg ) , by na měsíci Io vážil asi 36 liber ( 16 kg ) .</czech>
+  <sure>1-1 2-2 3-3 4-6 5-7 6-8 7-9 8-10 9-11 10-12 11-4 12-5 13-13 15-14 14-18 23-15 24-17 16-19 17-20 18-21 19-22 20-23 21-24 22-25 25-26</sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s8">
+  <ukrainian>Тому гравітація , звісно , притягує вас менше .</ukrainian>
+  <czech>Gravitace je tudíž pochopitelně méně citelná .</czech>
+  <sure>1-3 2-1 8-5 9-7 4-4</sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s9">
+  <ukrainian>Сонце не має кори як у Землі , на якій можна стояти . Воно повністю складається із газів , вогню та плазми .</ukrainian>
+  <czech>Slunce nemá na rozdíl od Země krustu , na které by se dalo stát .</czech>
+  <sure>1-1 2-2 3-2 7-6 4-7 8-8 9-9 10-10 12-14 13-15 11-11 11-12 11-13</sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s10">
+  <ukrainian>Воно повністю складається із газів , вогню та плазми .</ukrainian>
+  <czech>Celé Slunce je utvořeno z plynů , ohně a plasmy .</czech>
+  <sure>3-4 4-5 5-6 6-7 7-8 8-9 9-10 10-11</sure>
+  <possible>3-3</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s11">
+  <ukrainian>Чим далі від центру Сонця , тим шар газу тонший .</ukrainian>
+  <czech>Se zvyšující se vzdáleností od středu Slunce jsou plyny řidší .</czech>
+  <sure>3-5 4-6 5-7 11-11</sure>
+  <possible>9-9 2-2 2-3 2-4 1-1 10-10</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s12">
+  <ukrainian>Зовнішня частина , яку ми бачимо , коли дивимося на сонце , називається фотосфера , що означає " куля світла " .</ukrainian>
+  <czech>Vnější část , kterou při pohledu na Slunce vidíme , se nazývá fotosféra , což znamená „ koule světla “ .</czech>
+  <sure>1-1 2-2 3-3 4-4 6-9 11-8 10-7 12-10 13-12 14-13 15-14 16-15 17-16 18-17 19-18 20-19 21-20 22-21 8-5</sure>
+  <possible>5-9 13-11 9-6</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s13">
+  <ukrainian>Приблизно через три тисячі років , у 1610 році , італійський астроном Галілео Галілей за допомогою телескопа побачив , що Венера , як і Місяць , має три фази .</ukrainian>
+  <czech>Po přibližně třech tisíciletích , v roce 1610 , použil italský astronom Galileo Galilei dalekohled k pozorování Venuše : zjistil , že má podobně jako Měsíc různé fáze .</czech>
+  <sure>3-3 4-4 5-4 6-5 9-7 8-8 10-9 11-11 12-12 13-13 14-14 17-15 2-1 7-6 21-18 1-2 18-20 20-22 23-25 25-26 27-23 29-28 30-29 19-21</sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s14">
+  <ukrainian>Фази бувають тому , що освітлюється тільки сторона Венери ( або Місяця ) , повернена до Сонця .</ukrainian>
+  <czech>Fáze se dějí jen proto , že osvětlena je jen část Venuše ( nebo Měsíce ) , která je obrácená ke Slunci .</czech>
+  <sure>1-1 2-3 3-5 4-6 5-7 6-8 7-10 8-11 9-12 10-13 11-14 12-15 13-16 14-17 15-20 16-21 17-22 18-23</sure>
+  <possible>2-2 3-4 15-19 15-18</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s15">
+  <ukrainian>Фази Венери підтримують теорію Коперника про те , що планети обертаються навколо Сонця .</ukrainian>
+  <czech>Fáze Venuše podporovaly Koperníkovu teorii , že planety obíhají kolem Slunce .</czech>
+  <sure>1-1 2-2 3-3 4-5 5-4 9-7 8-6 10-8 11-9 12-10 13-11 14-12</sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s16">
+  <ukrainian>Потім , кілька років по тому в 1639 році , англійський астроном на ім'я Єремія Горрокс спостерігав проходження Венери .</ukrainian>
+  <czech>Anglický astronom Jeremiah Horrocks pak o několik let později v roce 1639 pozoroval tzv. přechod Venuše .</czech>
+  <sure>1-5 3-7 4-8 7-10 9-11 8-12 11-1 12-2 15-3 16-4 17-13 18-15 19-16 20-17 5-9 6-9</sure>
+  <possible>3-6</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s17">
+  <ukrainian>Після відвоювання Данелага в Англії настав тривалий мир .</ukrainian>
+  <czech>Po znovudobytí Danelaw zažila Anglie dlouhé období míru .</czech>
+  <sure>1-1 2-2 3-3 5-5 8-8 9-9</sure>
+  <possible>6-4 4-5 7-6 7-7</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s18">
+  <ukrainian>Однак 991 року Етельред зіткнувся з флотом вікінгів , більшим , ніж будь - який інший з часів Гутрума сторіччям раніше .</ukrainian>
+  <czech>Nicméně v roce 991 čelil Ethelred největší vikingské flotile od doby Guthruma o sto let dříve .</czech>
+  <sure>1-1 3-3 2-4 5-5 4-6 8-8 7-9 17-10 18-11 19-12 21-16 22-17 16-7 15-7 14-7 13-7 12-7 11-7 10-7 20-13 20-14 20-15</sure>
+  <possible>3-2 6-7</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s19">
+  <ukrainian>Цей флот очолив Олаф Трюггвасон , норвежець із амбіціями звільнити свою країну від данського панування .</ukrainian>
+  <czech>Flotilu vedl Olaf Trygvasson , Nor s ambicemi získat zpět svou zemi z dánské nadvlády .</czech>
+  <sure>2-1 3-2 4-3 5-4 6-5 7-6 8-7 9-8 11-11 12-12 13-13 14-14 15-15 16-16 10-9 10-10</sure>
+  <possible>1-1</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s20">
+  <ukrainian>Санскрит — давня мова , її можна порівняти з латинською мовою у Європі .</ukrainian>
+  <czech>Sanskrt je starověký jazyk srovnatelný s latinou používanou v Evropě .</czech>
+  <sure>1-1 2-2 3-3 4-4 9-6 12-9 13-10 14-11 6-5 7-5 8-5 10-7 11-7</sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s21">
+  <ukrainian>Найбільш стара з відомих у світі книг була написана мовою санскрит .</ukrainian>
+  <czech>Nejstarší známá kniha na světě byla napsána v sanskrtu .</czech>
+  <sure>7-3 5-4 6-5 8-6 12-10 9-7 1-1 2-1 10-9 11-9</sure>
+  <possible>3-2 4-2 10-8</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s22">
+  <ukrainian>Мова санскрит зникла через ієрархію після укладання Упанішад .</ukrainian>
+  <czech>Po vzniku upanišad však význam sanskrtu poklesl v důsledku hierarchie .</czech>
+  <sure>6-1 8-3 5-10 9-11 1-6 2-6 4-8 4-9</sure>
+  <possible>7-2 3-7</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s23">
+  <ukrainian>Так ! Фараон Тутанхамон , якого іноді називають " фараоном Тутом " або " хлопчиком - фараоном " , – один з найвідоміших сьогодні фараонів Давнього Єгипту .</ukrainian>
+  <czech>Ano ! Král Tutanchamón , někdy zmiňovaný také jako „ Král Tut “ nebo „ Král chlapec “ , je jedním ze v současnosti nejznámějších starověkých egyptských králů .</czech>
+  <sure>1-1 2-2 4-4 5-5 9-10 11-12 12-13 13-14 14-15 17-16 15-17 18-18 19-19 20-20 21-21 22-22 23-25 26-26 27-27 25-28 28-29 3-3 7-6 10-11 24-23 24-24</sure>
+  <possible>8-7</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s24">
+  <ukrainian>Що цікаво , у давні часи він не вважався особливо важливим , і не був відзначений у більшості списків давніх фараонів .</ukrainian>
+  <czech>Je zajímavé , že ve starověku nebyl považován za příliš významného a na většině královských seznamů nebyl uveden .</czech>
+  <sure>2-2 3-3 4-5 8-7 9-8 10-10 11-11 13-12 16-18 17-13 18-14 19-16 21-15 22-19 5-6 6-6 14-17 15-17</sure>
+  <possible>7-7 9-9 1-1 3-4</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s25">
+  <ukrainian>Однак знахідка його гробниці у 1922 році зробила його знаменитістю .</ukrainian>
+  <czech>Objev jeho hrobky v roce 1922 z něj nicméně udělal celebritu .</czech>
+  <sure>2-1 3-2 4-3 5-4 7-5 6-6 8-10 10-11 1-9 11-12 9-8 9-7</sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s26">
+  <ukrainian>Хоча багато поховань минулого були пограбовані , ця гробниця залишилась фактично непорушеною .</ukrainian>
+  <czech>Zatímco mnoho hrobů bylo vykradeno , tato hrobka zůstala prakticky neporušená .</czech>
+  <sure>2-2 3-3 5-4 6-5 7-6 8-7 9-8 10-9 11-10 12-11 13-12</sure>
+  <possible>1-1</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s27">
+  <ukrainian>Одна з найпоширеніших проблем під час конвертації фільму у ДВД - формат — облямівка .</ukrainian>
+  <czech>Jedním z nejčastějších problémů při pokusu konvertovat film do formátu DVD je takzvaný overscan .</czech>
+  <sure>1-1 2-2 3-3 4-4 7-7 8-8 9-9 10-11 12-10 13-12 14-14 15-15 5-5 6-5</sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s28">
+  <ukrainian>Більшість телевізорів зроблені таким чином , щоб подобатися широкій публіці .</ukrainian>
+  <czech>Většina televizí je vyrobena tak , aby se líbila široké veřejnosti .</czech>
+  <sure>1-1 2-2 3-4 6-6 7-7 8-9 9-10 10-11 11-12 4-5 5-5</sure>
+  <possible>3-3 8-8</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s29">
+  <ukrainian>Ось чому все , що ви бачите на ТБ , має обрізані межі зверху , знизу і з боків .</ukrainian>
+  <czech>Z tohoto důvodu má vše , co vidíte v televizi , oříznuté kraje nahoře , dole i po stranách .</czech>
+  <sure>4-6 5-7 7-8 8-9 9-10 10-11 11-4 12-12 13-13 14-14 15-15 16-16 17-17 18-18 19-19 20-20 2-1 2-2 2-3 1-3 1-2 1-1</sure>
+  <possible>6-8</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s30">
+  <ukrainian>Це робиться для того , щоб зображення покривало весь екран .</ukrainian>
+  <czech>Je to pro ujištění , že obrázek zakrývá celou obrazovku .</czech>
+  <sure>5-5 6-6 7-7 8-8 9-9 10-10 11-11 1-2 3-3</sure>
+  <possible>2-1 4-4</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s31">
+  <ukrainian>Це називається розгортка .</ukrainian>
+  <czech>To se nazývá overscan .</czech>
+  <sure>1-1 2-3 3-4 4-5</sure>
+  <possible>2-2</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s32">
+  <ukrainian>На жаль , при створенні ДВД краї відео , найімовірніше , теж обріжуться , а якщо відео містило субтитри занадто близько до нижнього краю , вони не відображатимуться повністю .</ukrainian>
+  <czech>Bohužel , když vytváříte video DVD , okraje videa budou ořezané také , a pokud jsou titulky videa příliš blízko spodnímu okraji , neukáží se celé .</czech>
+  <sure>3-2 6-6 7-8 8-9 12-12 14-13 15-14 16-15 17-18 19-17 20-19 21-20 23-21 24-22 25-23 28-24 29-26 30-27 9-7 1-1 2-1 4-3</sure>
+  <possible>6-5 13-10 22-21 26-24 27-24 28-25 5-4</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s33">
+  <ukrainian>Розслабте руку якомога більше , при цьому все ще натискаючи на правильні клавіші , так само намагайтесь не робити зайвих рухів пальцями .</ukrainian>
+  <czech>Ujistěte se , že máte ruku maximálně uvolněnou , přitom správně mačkejte všechny klávesy – také se snažte prsty příliš nehýbat kolem .</czech>
+  <sure>2-6 5-9 13-14 17-18 20-20 22-19 23-23 4-7 3-7 6-10 7-10 16-16 15-16</sure>
+  <possible>1-8 10-12 11-12 12-11 17-17 18-21 19-21 21-21 21-22 19-22</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s34">
+  <ukrainian>Таким чином , ви будете втомлюватись значно менше .</ukrainian>
+  <czech>Tímto způsobem se unavíte co nejméně .</czech>
+  <sure>1-1 2-2 6-4 9-7 7-6 7-5 8-6</sure>
+  <possible>4-4 5-4 6-3</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s35">
+  <ukrainian>Пам'ятайте , що вам не треба натискати клавіші з великими зусиллями , щоб отримати додатковий звук , як на піаніно .</ukrainian>
+  <czech>Nezapomeňte , že pro větší hlasitost není třeba tisknout klávesy velkou silou jako v případě klavíru .</czech>
+  <sure>2-2 3-3 5-7 6-8 7-9 8-10 10-11 11-12 13-4 18-13 20-16 21-17</sure>
+  <possible>9-11 18-14 18-15 19-16 1-1</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s36">
+  <ukrainian>На акордеоні , щоб досягти більшого об'єму , треба використовувати міхи з більшим натиском чи швидкістю .</ukrainian>
+  <czech>Pokud chcete na akordeon hrát hlasitěji , musíte měch stlačovat silněji nebo rychleji .</czech>
+  <sure>1-3 2-4 8-7 11-9 13-11 15-12 17-14</sure>
+  <possible>9-8 16-13 10-10 12-10 14-10</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s37">
+  <ukrainian>Гольф — це гра , в якій гравці використовують ключки , щоби забивати м'ячі у лунки .</ukrainian>
+  <czech>Golf je hra , ve která hráči používají hole pro odpálení míčků do jamek .</czech>
+  <sure>1-1 2-2 3-2 4-3 5-4 6-5 7-6 8-7 9-8 10-9 12-10 13-11 14-12 15-13 16-14 17-15</sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s38">
+  <ukrainian>Гравець який робить наймеше ударів , чи замахів клюшкою , щоб завершити курс , перемагає .</ukrainian>
+  <czech>Vyhrává hráč , který provede nejméně úderů nebo švihů holí k dokončení dráhy .</czech>
+  <sure>15-1 1-2 2-4 4-6 5-7 7-8 8-9 9-10 16-14</sure>
+  <possible>3-5 11-11 12-12 13-13</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s39">
+  <ukrainian>Сполуки й елементи можуть без змін переходити з одного стану в інший .</ukrainian>
+  <czech>Prvky a sloučeniny mohou přecházet z jednoho skupenství do druhého beze změny .</czech>
+  <sure>1-1 2-2 3-3 4-4 5-11 6-12 7-5 8-6 9-7 10-8 11-9 12-10 13-13</sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s40">
+  <ukrainian>Азот у газоподібному стані ще має ті ж властивості , що і рідкий азот . У рідкому стані він є більш густим , але молекули залишаються однаковими .</ukrainian>
+  <czech>Plynný dusík má shodné vlastnosti jako dusík v kapalném skupenství . Jako kapalina má vyšší hustotu , avšak molekuly zůstávají stejné .</czech>
+  <sure>6-3 9-5 1-2 14-7 15-11 23-17 24-18 25-19 26-20 27-21 28-22 2-1 3-1 4-1 7-4 8-4 12-6 11-6 13-8 13-9 13-10</sure>
+  <possible>16-12 17-13 18-13 19-14 20-14 21-15 22-16</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s41">
+  <ukrainian>У рідкому стані він є більш густим , але молекули залишаються однаковими .</ukrainian>
+  <czech>Jako kapalina má vyšší hustotu , avšak molekuly zůstávají stejné .</czech>
+  <sure>8-6 9-7 10-8 11-9 12-10 13-11</sure>
+  <possible>1-1 2-2 3-2 4-3 5-3 6-4 7-5</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s42">
+  <ukrainian>Інший приклад – вода .</ukrainian>
+  <czech>Jiným příkladem je voda .</czech>
+  <sure>4-4 5-5</sure>
+  <possible>2-2 1-1 3-3</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s43">
+  <ukrainian>Склад води : два атоми водню та один атом кисню .</ukrainian>
+  <czech>Voda se coby sloučenina skládá ze dvou atomů vodíku a jednoho atomu kyslíku .</czech>
+  <sure>2-1 5-8 6-9 7-10 8-11 9-12 10-13 11-14 4-7</sure>
+  <possible>1-2 1-5 3-6</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s44">
+  <ukrainian>Вона має однакову молекулярну структуру у газоподібному , рідкому або твердому стані .</ukrainian>
+  <czech>Má stejnou molekulární strukturu bez ohledu na to , zda je ve skupenství plynném , kapalném nebo pevném .</czech>
+  <sure>2-1 3-2 4-3 5-4 6-12 12-13 7-14 8-15 9-16 10-17 11-18 13-19</sure>
+  <possible>1-1</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s45">
+  <ukrainian>Хоча її фізичний стан може змінюватись , її хімічний склад залишається тим самим .</ukrainian>
+  <czech>Ačkoliv se fyzický stav může měnit , chemická podoba zůstává stejná .</czech>
+  <sure>1-1 6-6 5-5 4-4 3-3 7-7 9-8 11-10 14-12 13-11 12-11</sure>
+  <possible>6-2 10-9</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s46">
+  <ukrainian>Район Каналів ( нідерландською : Grachtengordel ) – відомий район 17 століття , який оточує внутрішнє місто Амстердама .</ukrainian>
+  <czech>Canal District ( nizozemsky : Grachtengordel ) je známá čtvrť ze 17. století obklopující amsterdamský Binnenstad .</czech>
+  <sure>1-2 2-1 3-3 4-4 5-5 6-6 7-7 9-9 10-10 11-12 12-13 18-15 19-17 15-14 14-14 17-16 16-16</sure>
+  <possible>8-8</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s47">
+  <ukrainian>Весь район включений до списку Всесвітньої спадщини ЮНЕСКО , завдяки своїй унікальній культурно - історичній цінності , а його майнові цінності є одними з найвищих у країні .</ukrainian>
+  <czech>Celá čtvrť je označena jako Světové dědictví UNESCO pro svoji jedinečnou kulturní a historickou hodnotu a ceny místních nemovitostí jsou jedny z nejvyšších v zemi .</czech>
+  <sure>1-1 2-2 6-6 7-7 8-8 11-10 12-11 16-15 18-16 22-20 23-21 24-22 25-23 26-24 27-25 28-26</sure>
+  <possible>10-9 13-12 15-14</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s48">
+  <ukrainian>Чинкве - Терре , що означає П'ять Земель , складається з п'яти маленьких прибережних сіл : Ріомаджоре , Манарола , Корнілья , Вернацца та Монтероссо , розташованих в італійському регіоні Лігурія .</ukrainian>
+  <czech>Cinque Terre , což znamená Pět Zemí , se skládá z pěti malých pobřežních vesnic Riomaggiore , Manarola , Corniglia , Vernazza a Monterosso , které se nacházejí v italské provincii Ligurie .</czech>
+  <sure>1-1 3-2 4-3 5-4 6-5 7-6 8-7 9-8 10-10 11-11 12-12 13-13 14-14 15-15 17-16 18-17 19-18 20-19 21-20 22-21 23-22 24-23 25-24 26-25 28-29 29-30 30-31 31-32 32-33 27-26 27-27 27-28</sure>
+  <possible>10-9</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s49">
+  <ukrainian>Вони входять до списку Світової спадщини ЮНЕСКО .</ukrainian>
+  <czech>Nachází se na seznamu světového dědictví UNESCO .</czech>
+  <sure>4-4 5-5 6-6 7-7 8-8</sure>
+  <possible>1-1 2-1 2-2 3-3</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s50">
+  <ukrainian>Протягом століть люди ретельно будували тераси на нерівному , стрімкому ландшафті до самих скель , які виходять до моря .</ukrainian>
+  <czech>Lidé v průběhu staletí pečlivě budovali terasy na strmém kamenitém svahu , který se zvedá k útesům s výhledem na moře .</czech>
+  <sure>3-1 2-4 4-5 5-6 6-7 7-8 12-16 14-17 18-20 19-21 20-22</sure>
+  <possible>8-9</possible>
+  <phrasal>1-2 1-3</phrasal>
+</s>
+<s id="flores-s51">
+  <ukrainian>Частиною його шарму є брак видимого корпоративного розвитку . Стежки , потяги та човни поєднують села , а машиною до них дістатися ззовні не можна .</ukrainian>
+  <czech>Součástí jeho kouzla je jen malý viditelný komerční rozvoj . Vesnice spojují cesty , vlaky a lodě a zvenčí se k nim auta nedostanou .</czech>
+  <sure>1-1 2-2 4-4 6-7 7-8 8-9 9-10 10-13 11-14 12-15 13-16 14-17 15-12 16-11 18-18 20-21 21-22 19-23 26-25</sure>
+  <possible>3-3 5-5 5-6 23-19 24-24 25-24 22-24 22-20</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s52">
+  <ukrainian>Стежки , потяги та човни поєднують села , а машиною до них дістатися ззовні не можна .</ukrainian>
+  <czech>Vesnice spojují cesty , vlaky a lodě a zvenčí se k nim auta nedostanou .</czech>
+  <sure>6-2 7-1 1-3 2-4 3-5 4-6 5-7 9-8 11-11 12-12 10-13 17-15</sure>
+  <possible>14-9 13-10 15-14 16-14 13-14</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s53">
+  <ukrainian>Різновиди французької мови , якою розмовляють в Бельгії та Швейцарії , дещо відрізняються від французької , яку використовують у Франції , хоча вони схожі достатньою мірою для того , щоб люди розуміли один одного .</ukrainian>
+  <czech>Typy francouzštiny , kterými se mluví v Belgii a Švýcarsku , se lehce odlišují od francouzštiny používané ve Francii , ačkoliv jsou dostatečně podobné pro vzájemné porozumění .</czech>
+  <sure>1-1 4-3 5-4 6-6 7-7 8-8 9-9 10-10 11-11 12-13 13-14 14-15 15-16 19-18 20-19 21-20 22-21 24-24 35-28 3-2 2-2 18-17 17-17 25-23 26-23 27-25 28-25 34-26 33-26</sure>
+  <possible>6-5 13-12 23-22 32-27</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s54">
+  <ukrainian>Зокрема , система нумерації у франкомовній Бельгії та Швейцарії має певні невеликі особливості , що відрізняються від французької якою розмовляють у Франції , та й вимова деяких слів теж дещо інша .</ukrainian>
+  <czech>Zejména systém číslování ve francouzsky mluvící Belgii a Švýcarsku se někdy mírně liší od francouzštiny hovořené ve Francii , a také se mírně liší výslovnost některých slov.</czech>
+  <sure>3-2 4-3 5-4 7-7 8-8 9-9 21-17 22-18 23-19 24-20 25-21 26-25 27-26 28-27 30-23 18-15 6-6 6-5 20-16 19-16</sure>
+  <possible>1-1 17-14 32-27 16-10 16-13</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s55">
+  <ukrainian>Тим не менш , усі франкомовні бельгійці та швейцарці вчили би стандартну французьку мову у школі , щоби мати можливість розуміти вас , навіть якби ви користувалися стандартною французькою системою нумерації .</ukrainian>
+  <czech>Všichni frankofonní Belgičané a Švýcaři se ve škole učí standardní francouzštinu , takže pokud použijete soustavu číslovek ze standardní francouzštiny , budou vám rozumět .</czech>
+  <sure>5-1 6-2 7-3 8-4 9-5 15-7 16-8 10-9 12-10 22-23 21-24 25-14 27-15 28-19 32-25 14-11 13-11</sure>
+  <possible>10-6 17-21 24-13 26-15 29-20 30-16 31-17</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s56">
+  <ukrainian>У багатьох частинах світу , махання рукою є дружнім жестом , означає " привіт " .</ukrainian>
+  <czech>V mnoha částech světa je mávání přátelským gestem značícím pozdrav .</czech>
+  <sure>1-1 2-2 3-3 4-4 8-5 9-7 10-8 12-9 14-10 16-11 7-6 6-6</sure>
+  <possible></possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s57">
+  <ukrainian>Допоміжні мови — це штучні або створені мови для сприяння комунікації між народами , які в іншому випадку мали б труднощі у спілкуванні .</ukrainian>
+  <czech>Pomocné jazyky jsou umělé nebo sestavené jazyky vytvořené za účelem používání v komunikaci mezi lidmi , kteří by se jinak dorozumívali jen těžko .</czech>
+  <sure>1-1 2-2 5-4 6-5 7-6 8-7 12-14 14-16 15-17 24-24 11-13 18-20 17-20 16-20</sure>
+  <possible>3-3 4-3 13-15 20-18</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s58">
+  <ukrainian>Вони не мають нічого спільного з лінгва франка , що являють собою природні чи органічні мови , котрі стали домінантними з тієї чи іншої причини у якості способу спілкування між носіями різних мов .</ukrainian>
+  <czech>Je to něco jiného než lingua franca , což je přirozený jazyk , který se z různých důvodů stane v dané oblasti dominantním a používá se k dorozumění mezi mluvčími různých jazyků .</czech>
+  <sure>7-6 8-7 9-8 17-13 18-14 20-23 21-16 25-18 19-19 30-29 31-30 32-31 33-32 34-33</sure>
+  <possible>10-9 19-15 12-10 11-10 13-11 16-12 24-17 23-17 22-17</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s59">
+  <ukrainian>Пташиний грип , або офіційна назва " avian influenza " ( англ . ) , може заражати як птахів , так і ссавців .</ukrainian>
+  <czech>Ptačí chřipka či odborněji influenza ptáků může infikovat jak ptáky , tak i savce .</czech>
+  <sure>4-3 16-7 17-8 18-9 19-10 20-11 21-12 22-13 23-14 24-15 1-1 2-2 9-5 8-6</sure>
+  <possible>5-4 6-4</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s60">
+  <ukrainian>Деякі з випадків захворювання виявилися смертельними , та всього було зареєстровано не бульше тисячі випадків .</ukrainian>
+  <czech>U lidí bylo hlášeno méně než tisíc případů , ale některé z nich skončily smrtí .</czech>
+  <sure>10-3 11-4 14-7 15-8 1-11 2-12 16-16</sure>
+  <possible>3-13 5-14 6-15 12-5 12-6 13-5 13-6</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s61">
+  <ukrainian>Більшість стосувалися людей , які працюють з домашніми птахами , але деякий ризик є і для бьордвотчерів .</ukrainian>
+  <czech>Většina se týkala lidí , kteří pracují s drůbeží , existuje ale i určité riziko pro amatérské ornitology .</czech>
+  <sure>2-3 3-4 4-5 5-6 6-7 7-8 10-10 11-12 15-13 13-15 16-16 18-19 9-9 8-9 17-17 17-18</sure>
+  <possible>2-2 14-11</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s62">
+  <ukrainian>Для Норвегії типові стрімкі фіорди та долини , які різко переходять у високі , більш - менш рівні полонини .</ukrainian>
+  <czech>Pro Norsko jsou typické strmé fjordy a údolí , která náhle ustupují vysokým a víceméně plochým náhorním plošinám .</czech>
+  <sure>1-1 2-2 3-4 4-5 5-6 6-7 7-8 8-9 9-10 10-11 11-12 13-13 18-16 20-19 17-15 16-15 15-15</sure>
+  <possible>12-12 14-14 19-17 19-18</possible>
+  <phrasal></phrasal>
+</s>
+<s id="flores-s63">
+  <ukrainian>Ці полонини часто називають " vidde " , що означає широкий та відкритий простір без лісу , безкрайню широчінь .</ukrainian>
+  <czech>Těmto plošinám se často říká „ vidde “ , což znamená rozsáhlý a otevřený prostor bez stromů , neohraničenou plochu .</czech>
+  <sure>2-2 4-5 3-4 5-6 6-7 7-8 8-9 9-10 10-11 11-12 12-13 13-14 14-15 15-16 16-17 17-18 20-21</sure>
+  <possible>1-1 4-3 19-20 18-19</possible>
+  <phrasal></phrasal>
+</s>
+</sentences>
