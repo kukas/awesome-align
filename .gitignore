@@ -8,3 +8,4 @@ finetune/
 awesome_align_env/
 outputs/
 data/prepared_data/
+training_logs/
