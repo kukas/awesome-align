@@ -1,10 +1,16 @@
-DATA_FILE=data/prepared_data/full8M.csuk.valid.10000
-#MODEL_NAME_OR_PATH=bert-base-multilingual-cased
-MODEL_NAME_OR_PATH=$1
-#OUTPUT_FILE=outputs/full8M.csuk.valid.nofinetune
-OUTPUT_FILE=outputs/full8M.csuk.valid.$2
+#!/bin/bash
+#SBATCH -p gpu-troja
+#SBATCH --mem=16G
+#SBATCH --cpus-per-task=2
+#SBATCH --gres=gpu:1
+#SBATCH --time=00:30:00
+#SBATCH -o /home/balhar/my-luster/awesome-align/eval_logs/eval_%j.out
 
-CUDA_VISIBLE_DEVICES=0 awesome-align \
+MODEL_NAME_OR_PATH=$1
+DATA_FILE=$2
+OUTPUT_FILE=$3
+
+awesome-align \
 	--output_file=$OUTPUT_FILE \
 	--model_name_or_path=$MODEL_NAME_OR_PATH \
 	--data_file=$DATA_FILE \
