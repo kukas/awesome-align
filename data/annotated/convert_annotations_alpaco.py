@@ -1,34 +1,6 @@
 import xml.etree.ElementTree as ET
 import argparse
-from collections import namedtuple
-
-class Alignment:
-    def __init__(self, index1, index2, type):
-        self.pair = (index1, index2)
-        self.type = type
-    @classmethod
-    def from_string(cls, string, type):
-        index1, index2 = string.split("-")
-        return cls(int(index1), int(index2), type)
-
-    def __repr__(self) -> str:
-        if self.type == "sure":
-            return f"{self.pair[0]}-{self.pair[1]}"
-        elif self.type == "possible":
-            return f"{self.pair[0]}p{self.pair[1]}"
-
-    def __lt__(self, other):
-        return self.pair < other.pair
-
-    def __sub__(self, other):
-        # check if other is int
-        if isinstance(other, int):
-            return Alignment(self.pair[0] - other, self.pair[1] - other, self.type)
-        else:
-            raise NotImplementedError
-
-    def flip(self):
-        return Alignment(self.pair[1], self.pair[0], self.type)
+from convert_annotations_utils import Alignment
 
 def parse_xml(xml_file):
     tree = ET.parse(xml_file)
@@ -56,15 +28,13 @@ def parse_xml(xml_file):
     return sentences
 
 def create_gold_file(sentences, output_file):
-    print("gold fiel")
     with open(output_file, 'w') as f:
-        print("ok?")
         for s in sentences:
             sure = [Alignment.from_string(p, "sure") for p in s['sure'].split()]
             possible = [Alignment.from_string(p, "possible") for p in s['possible'].split()]
             all_alignments = sure + possible
             # reindex the alignment to start from 0 (wa files are indexed from 1)
-            all_alignments = map(lambda a: a - 1, all_alignments)
+            # all_alignments = map(lambda a: a - 1, all_alignments)
             # flip order (we want cs-uk, the wa files are uk-cs)
             all_alignments = map(lambda a: a.flip(), all_alignments)
             # convert to strings
