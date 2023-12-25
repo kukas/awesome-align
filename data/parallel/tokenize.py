@@ -46,10 +46,14 @@ def main():
 
     tokenizer = get_tokenizer(args.language)
 
+    # check if input file exists
+    if not os.path.exists(args.input):
+        raise ValueError(f"Input file {args.input} does not exist")
+
     # check if output directory exists and create it if not
     output_dir = os.path.dirname(args.output)
     if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+        os.makedirs(output_dir, exist_ok=True)
 
     with open(args.input, "r") as f:
         with open(args.output, "w") as out:
