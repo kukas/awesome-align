@@ -46,6 +46,11 @@ def main():
 
     tokenizer = get_tokenizer(args.language)
 
+    # check if output directory exists and create it if not
+    output_dir = os.path.dirname(args.output)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
     with open(args.input, "r") as f:
         with open(args.output, "w") as out:
             num_lines = sum(1 for _ in f)
