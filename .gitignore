@@ -9,4 +9,7 @@ finetune/
 awesome_align_env/
 outputs/
 original_data
+tokenized_data
+prepared_data
+data/parallel/all_pairs/
 logs/
