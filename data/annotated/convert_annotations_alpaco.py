@@ -34,7 +34,7 @@ def create_gold_file(sentences, output_file):
             possible = [Alignment.from_string(p, "possible") for p in s['possible'].split()]
             all_alignments = sure + possible
             # reindex the alignment to start from 0 (wa files are indexed from 1)
-            # all_alignments = map(lambda a: a - 1, all_alignments)
+            all_alignments = map(lambda a: a - 1, all_alignments)
             # flip order (we want cs-uk, the wa files are uk-cs)
             all_alignments = map(lambda a: a.flip(), all_alignments)
             # convert to strings
