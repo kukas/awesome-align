@@ -1,9 +1,11 @@
 #!/bin/bash
 
-DATA_FILE="data_manual/csuk.src-tgt"
-for model_path in finetune/mbert_full8M_1epoch/checkpoint*
+DATA_FILE="data/annotated/cs-uk/csuk.src-tgt"
+for model_path in $1/checkpoint*
 do
-    echo run_align.sh $model_path $DATA_FILE $model_path/csuk.awesome-align.out
-    sbatch run_align.sh $model_path $DATA_FILE $model_path/csuk.awesome-align.out
-    break
+    if [ ! -f  $model_path/csuk.awesome-align.out ]
+    then
+	echo run_align.sh $model_path $DATA_FILE $model_path/csuk.awesome-align.out
+	sbatch run_align.sh $model_path $DATA_FILE $model_path/csuk.awesome-align.out
+    fi
 done

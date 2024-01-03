@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --gres=gpu:1
 #SBATCH --time=00:30:00
-#SBATCH -o /home/balhar/my-luster/awesome-align/eval_logs/eval_%j.out
+#SBATCH -o /home/balhar/my-luster/awesome-align/logs/eval_logs/eval_%j.out
 
 MODEL_NAME_OR_PATH=$1
 DATA_FILE=$2
