@@ -406,6 +406,10 @@ def train(args, train_dataset, model: PreTrainedModel, tokenizer: PreTrainedToke
                     logging_loss = tr_loss
 
                 if args.local_rank in [-1, 0] and args.save_steps > 0 and global_step % args.save_steps == 0:
+                    # after the threshold, save less frequently
+                    if global_step >= args.save_steps_threshold:
+                        args.save_steps = args.save_steps_larger
+
                     checkpoint_prefix = "checkpoint"
                     # Save model checkpoint
                     output_dir = os.path.join(args.output_dir, "{}-{}".format(checkpoint_prefix, global_step))
@@ -701,8 +705,10 @@ def main():
     )
     parser.add_argument("--warmup_steps", default=0, type=int, help="Linear warmup over warmup_steps.")
 
-    parser.add_argument("--logging_steps", type=int, default=500, help="Log every X updates steps.")
-    parser.add_argument("--save_steps", type=int, default=500, help="Save checkpoint every X updates steps.")
+    parser.add_argument("--logging_steps", type=int, default=200, help="Log every X updates steps.")
+    parser.add_argument("--save_steps", type=int, default=200, help="Save checkpoint every X updates steps.")
+    parser.add_argument("--save_steps_threshold", type=float, default=20000, help="Make save_steps larger after a threshold.")
+    parser.add_argument("--save_steps_larger", type=float, default=2000, help="Make save_steps larger after a threshold.")
     parser.add_argument(
         "--save_total_limit",
         type=int,
