@@ -16,3 +16,6 @@ awesome-align \
 	--data_file=$DATA_FILE \
 	--extraction 'softmax' \
 	--batch_size 32
+
+# example:
+# sbatch run_align.sh bert-base-multilingual-cased data/annotated/en-fr/enfr.src-tgt finetune/bert-base-multilingual-cased/enfr.awesome-align.out
