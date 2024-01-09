@@ -36,6 +36,16 @@ from awesome_align.tokenization_bert import BertTokenizer
 from awesome_align.tokenization_utils import PreTrainedTokenizer
 from awesome_align.modeling_utils import PreTrainedModel
 
+from timeit import default_timer as timer
+class Timer:
+    def __init__(self):
+        self.last = timer()
+        self.last_message = "start"
+    def __call__(self, message):
+        print(self.last_message, timer() - self.last)
+        self.last_message = message
+        self.last = timer()
+t = Timer()
 
 def set_seed(args):
     if args.seed >= 0:
@@ -152,12 +162,14 @@ def word_align(args, model: PreTrainedModel, tokenizer: PreTrainedTokenizer):
         ids_tgt = pad_sequence(ids_tgt, batch_first=True, padding_value=tokenizer.pad_token_id)
         return worker_ids, ids_src, ids_tgt, bpe2word_map_src, bpe2word_map_tgt, sents_src, sents_tgt
 
+    t("create dataset")
     offsets = find_offsets(args.data_file, args.num_workers)
     dataset = LineByLineTextDataset(tokenizer, file_path=args.data_file, offsets=offsets)
     dataloader = DataLoader(
         dataset, batch_size=args.batch_size, collate_fn=collate, num_workers=args.num_workers
     )
 
+    t("move model to device\n")
     model.to(args.device)
     model.eval()
     tqdm_iterator = trange(0, desc="Extracting")
@@ -168,6 +180,7 @@ def word_align(args, model: PreTrainedModel, tokenizer: PreTrainedTokenizer):
     if args.output_word_file is not None:
         word_writers = open_writer_list(args.output_word_file, args.num_workers)
 
+    t("extract alignments")
     for batch in dataloader:
         with torch.no_grad():
             worker_ids, ids_src, ids_tgt, bpe2word_map_src, bpe2word_map_tgt, sents_src, sents_tgt = batch
@@ -191,15 +204,18 @@ def word_align(args, model: PreTrainedModel, tokenizer: PreTrainedTokenizer):
                 if args.output_word_file is not None:
                     word_writers[worker_id].write(' '.join(output_word_str)+'\n')
             tqdm_iterator.update(len(ids_src))
-
+    
+    t("merge files")
     merge_files(writers)
     if args.output_prob_file is not None:
         merge_files(prob_writers)
     if args.output_word_file is not None:
         merge_files(word_writers)
+    t("the end")
 
 
 def main():
+    t("parse arguments")
     parser = argparse.ArgumentParser()
 
     # Required parameters
@@ -254,9 +270,11 @@ def main():
     parser.add_argument("--no_cuda", action="store_true", help="Avoid using CUDA when available")
     parser.add_argument("--num_workers", type=int, default=4, help="Number of workers for data loading")
     args = parser.parse_args()
+    
     device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
     args.device = device
 
+    t("initialize config")
     # Set seed
     set_seed(args)
     config_class, model_class, tokenizer_class = BertConfig, BertForMaskedLM, BertTokenizer
@@ -267,6 +285,7 @@ def main():
     else:
         config = config_class()
 
+    t("initialize tokenizer")
     if args.tokenizer_name:
         tokenizer = tokenizer_class.from_pretrained(args.tokenizer_name, cache_dir=args.cache_dir)
     elif args.model_name_or_path:
@@ -281,6 +300,7 @@ def main():
     modeling.CLS_ID = tokenizer.cls_token_id
     modeling.SEP_ID = tokenizer.sep_token_id
 
+    t("initialize model")
     if args.model_name_or_path:
         model = model_class.from_pretrained(
             args.model_name_or_path,

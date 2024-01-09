@@ -23,7 +23,7 @@ def dummy_granular_tokenizer_dash(sentence):
     return re.split(r'(-)', sentence)
 
 def dummy_granular_tokenizer_noop(sentence):
-    return sentence
+    return [sentence]
 
 def dummy_granular_tokenizer_crazy(sentence):
     toks = re.split(r'(\w\w)', sentence)
@@ -43,9 +43,6 @@ def test_granularize_tokenization():
     print(trg_token_mapping)
     assert granular_result == granular_trg_tokens
     assert granular_to_coarse_mapping == trg_token_mapping
-
-    # granular_src_result, granular_to_coarse_mapping = granularize_tokenization(user_src_tokens, dummy_granular_tokenizer_crazy)
-    # print(granular_to_coarse_mapping)
 
 def test_map_tokenization():
     # we want to get the coarse_alignment from granular_alignment

@@ -27,7 +27,7 @@ def parse_args():
     parser.add_argument("--cleanPunctuation", action="store_true", help="Removes alignments including punctuation marks, that are not aligned to the same punctuation mark (e.g. ','-'that')")
     parser.add_argument("--most_common_errors", default=10, type=int)
 
-    return parser.parse_args()
+    return parser
 
 
 def calculate_internal_jumps(alignments):
@@ -163,9 +163,7 @@ def read_text(path):
     with open(path, "r", encoding="utf-8") as f:
         return [l.split() for l in f]
 
-
-if __name__ == "__main__":
-    args = parse_args()
+def main(args, printit=True):
     sure, possible, hypothesis = [], [], []
 
     source, target = map(read_text, [args.source, args.target])
@@ -197,13 +195,20 @@ if __name__ == "__main__":
                 hypothesis[-1].add(alignment_tuple)
 
     precision, recall, aer, f_measure, errors, source_coverage, target_coverage, internal_jumps, external_jumps = calculate_metrics(sure, possible, hypothesis, args.fAlpha, source, target, args.cleanPunctuation)
-    print("{0}: {1:.1f}% ({2:.1f}%/{3:.1f}%/{4})".format(args.hypothesis,
-                aer * 100.0, precision * 100.0, recall * 100.0, sum([len(x) for x in hypothesis])))
-    if args.fAlpha >= 0.0:
+    if printit:
+        print("{0}: {1:.1f}% ({2:.1f}%/{3:.1f}%/{4})".format(args.hypothesis,
+                    aer * 100.0, precision * 100.0, recall * 100.0, sum([len(x) for x in hypothesis])))
+    if args.fAlpha >= 0.0 and printit:
         print("F-Measure: {:.3f}".format(f_measure))
 
-    if args.source:
+    if args.source and printit:
         assert args.target and args.most_common_errors > 0, "To output the most common errors, define a source and target file and the number of errors to output"
         print(errors.most_common(args.most_common_errors))
         print("Internal Jumps: {}, External Jumps: {}".format(internal_jumps, external_jumps))
         print("Source Coverage: {:.1f}%, Target Coverage: {:.1f}%".format(source_coverage * 100.0, target_coverage * 100.0))
+
+    return aer, precision, recall, f_measure
+
+if __name__ == "__main__":
+    args = parse_args().parse_args()
+    main(args, printit=True)

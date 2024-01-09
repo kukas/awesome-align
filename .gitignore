@@ -1,3 +1,4 @@
+.ipynb_checkpoints
 .idea
 awesome_align.egg-info
 build
@@ -7,4 +8,8 @@ cache
 finetune/
 awesome_align_env/
 outputs/
-data/prepared_data/
+original_data
+tokenized_data
+prepared_data
+data/parallel/all_pairs/
+logs/
