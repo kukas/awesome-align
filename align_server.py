@@ -5,7 +5,6 @@ from flask import request
 from flask import Response
 from flask import jsonify
 from flask_cors import CORS
-from flask_api import status
 
 import sys
 from pprint import pprint
@@ -36,7 +35,8 @@ def create_app_csuk(test_config=None):
     uk_tokenizer = get_tokenizer('uk')
 
     app.logger.info("Loading awesome aligner...")
-    csuk_aligner = AwesomeAligner(model_name_or_path="bert-base-multilingual-cased")
+    model_name_or_path = "finetune/mbert_multilingual_1M-per-lang_only_tlm_add_so_lr5e-6/checkpoint-8600"
+    csuk_aligner = AwesomeAligner(model_name_or_path=model_name_or_path)
     app.logger.info("Model loaded.")
 
     @app.route("/")
@@ -48,7 +48,7 @@ def create_app_csuk(test_config=None):
     # info page
     @app.route('/info')
     def info():
-        return 'Word alignment server (AwesomeAligner, model: {:s})'.format(align_model_type)
+        return 'Word alignment server (AwesomeAligner, model: {:s})'.format(model_name_or_path)
     
     def tokenize_text(text, tokenizer):
         normalize_spaces = " ".join(text.split())
@@ -82,14 +82,15 @@ def create_app_csuk(test_config=None):
         elif src_tokens is not None and trg_tokens is not None:
             src_tokens_granular, src_mapping = granularize_tokenization(src_tokens, cs_tokenizer)
             trg_tokens_granular, trg_mapping = granularize_tokenization(trg_tokens, uk_tokenizer)
-            print(src_tokens_granular, src_mapping)
-            print(trg_tokens_granular, trg_mapping)
+            # print(src_tokens_granular, src_mapping)
+            # print(trg_tokens_granular, trg_mapping)
             align = compute_alignment(src_tokens_granular, trg_tokens_granular)
-            print(align)
+            # print(align)
             align = map_tokenization(align, src_mapping, trg_mapping)
-            print(align)
+            # print(align)
         else:
-            return "Supply either src_text and trg_text or src_tokens and trg_tokens", status.HTTP_400_BAD_REQUEST
+            # return 400 Bad Request
+            return "Supply either src_text and trg_text or src_tokens and trg_tokens", 400
 
         resp = { 'alignment': align, 'src_tokens': src_tokens, 'trg_tokens': trg_tokens }
         return jsonify(resp)
