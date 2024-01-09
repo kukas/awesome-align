@@ -20,7 +20,8 @@ def load_all_results():
         elif lang in ("cs-uk", "en-cs"):
             script_params = []
         else:
-            raise ValueError("Unsupported language")
+            continue
+            # raise ValueError("Unsupported language")
         aer, precision, recall, f1 = evaluate(path_gold, path, script_params)
         results.append({
             "experiment_name": experiment_name,
@@ -47,7 +48,9 @@ def load_results_for_one_checkpoint(path, experiment_name, step):
         elif lang in ("cs-uk", "en-cs"):
             script_params = []
         else:
-            raise ValueError("Unsupported language")
+            continue
+            # raise ValueError("Unsupported language")
+
         aer, precision, recall, f1 = evaluate(path_gold, path, script_params)
         results.append({
             "experiment_name": experiment_name,
