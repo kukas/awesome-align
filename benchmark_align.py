@@ -17,22 +17,6 @@ def main():
         aligner.align("hi ||| hi")
     print("Warming up done.")
 
-    print("Test limits")
-    # for bs in range(1, 100000, 1000):
-    #     test_aligner(aligner, bs, bs, 50, iters=1) # 52+52 input tokens
-        # crash na bs=4000, bs=3000 ještě prošlo
-    # for bs in range(1, 100000, 500):
-    #     test_aligner(aligner, bs, bs, 100, iters=1) # 102+102 input tokens
-        # crash na bs=2000, bs=1500 ještě prošel
-    # tedy máme 100 tokenů a 1500 vět = max 150000 tokenů
-
-    # according to "max_position_embeddings": 512, the max sequence length is 510
-    # test_aligner(aligner, 1, 1, 50, iters=100)
-    # test_aligner(aligner, 1, 1, 100, iters=100)
-    # test_aligner(aligner, 1, 1, 205, iters=100)
-    # test_aligner(aligner, 1, 1, 510, iters=100)
-    # test_aligner(aligner, 1, 1, 1000, iters=100) # strangely, this is even slower even though it should be probably truncated
-
     results = pd.read_csv("benchmark_align_2.csv",index_col=0).reset_index(drop=True).to_dict("records")
     iters = 50
     for sequence_size in [4,8,16,32,64,128,256,512]:
