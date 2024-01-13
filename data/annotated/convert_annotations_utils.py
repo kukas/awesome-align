@@ -8,8 +8,13 @@ class Alignment:
         else:
             raise ValueError("Invalid Alignment type"+type)
     @classmethod
-    def from_string(cls, string, type):
-        index1, index2 = string.split("-")
+    def from_string(cls, string, type=None):
+        if type is None:
+            if "p" in string:
+                type = "p"
+            else:
+                type = "-"
+        index1, index2 = string.split(type)
         return cls(int(index1), int(index2), type)
 
     def __repr__(self):
@@ -25,8 +30,22 @@ class Alignment:
         # check if other is int
         if isinstance(other, int):
             return Alignment(self.pair[0] - other, self.pair[1] - other, self.type)
+        elif isinstance(other, tuple):
+            assert len(other) == 2, f"other should be a tuple of length 2, but got {other}"
+            return Alignment(self.pair[0] - other[0], self.pair[1] - other[1], self.type)
+        else:
+            raise NotImplementedError
+    
+    def __add__(self, other):
+        # check if other is int
+        if isinstance(other, int):
+            return Alignment(self.pair[0] + other, self.pair[1] + other, self.type)
+        elif isinstance(other, tuple):
+            assert len(other) == 2, f"other should be a tuple of length 2, but got {other}"
+            return Alignment(self.pair[0] + other[0], self.pair[1] + other[1], self.type)
         else:
             raise NotImplementedError
 
     def flip(self):
         return Alignment(self.pair[1], self.pair[0], self.type)
+
