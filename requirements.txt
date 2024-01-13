@@ -5,3 +5,10 @@ numpy
 boto3
 filelock
 requests
+packaging
+python-dateutil
+gunicorn
+flask
+flask-cors
+mosestokenizer
+tokenize_uk

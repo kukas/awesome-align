@@ -8,28 +8,72 @@
 #SBATCH -o /home/balhar/my-luster/awesome-align/logs/training_logs/finetune_%j.out
 
 TRAIN_FILE=data/parallel/all_pairs/train.txt
-EVAL_DATA_FILE=data/annotated/de-en/deen.src-tgt
-EVAL_GOLD_FILE=data/annotated/de-en/deen.gold
-OUTPUT_DIR=finetune/mbert_multilingual_1M-per-lang
-
-# source /home/balhar/my-luster/awesome-align/awesome_align_env/bin/activate
-
-awesome-train \
-    --output_dir=$OUTPUT_DIR \
-    --model_name_or_path=bert-base-multilingual-cased \
-    --extraction 'softmax' \
+COMMON_ARGS="--extraction softmax \
     --do_train \
     --train_tlm \
-    --train_so \
     --train_data_file=$TRAIN_FILE \
     --per_gpu_train_batch_size 8 \
     --gradient_accumulation_steps 1 \
-    --num_train_epochs 10 \
+    --num_train_epochs 1 \
     --learning_rate 2e-5 \
-    --save_steps 10000 \
     --cache_data \
-    --do_eval \
-    --eval_data_file=$EVAL_DATA_FILE \
-    --eval_gold_file=$EVAL_GOLD_FILE \
-    --overwrite_output_dir
-    # --max_steps 20000
+    --overwrite_output_dir"
+
+# awesome-train \
+#     $COMMON_ARGS \
+#     --output_dir=finetune/mbert_multilingual_1M-per-lang_finegrained \
+#     --model_name_or_path=bert-base-multilingual-cased \
+#     --train_so \
+#     --save_steps 200
+
+# awesome-train \
+#      $COMMON_ARGS \
+#     --output_dir=finetune/mbert_multilingual_1M-per-lang_finegrained_only_tlm \
+#     --model_name_or_path=bert-base-multilingual-cased \
+#     --save_steps 200
+
+# awesome-train \
+#      $COMMON_ARGS \
+#     --output_dir=finetune/mbert_multilingual_1M-per-lang_finegrained_all_objectives \
+#     --model_name_or_path=bert-base-multilingual-cased \
+#     --train_mlm \
+#     --train_tlm \
+#     --train_tlm_full \
+#     --train_so \
+#     --train_psi \
+#     --max_steps 40000
+
+# awesome-train \
+#      $COMMON_ARGS \
+#     --output_dir=finetune/mbert_multilingual_1M-per-lang_finegrained_only_tlm_lr2e-4 \
+#     --model_name_or_path=bert-base-multilingual-cased \
+#     --learning_rate 2e-4 \
+#     --save_steps 200
+
+# awesome-train \
+#     $COMMON_ARGS \
+#     --model_name_or_path=finetune/mbert_multilingual_1M-per-lang_finegrained/checkpoint-45000 \
+#     --output_dir=finetune/mbert_multilingual_1M-per-lang_finegrained_continue \
+#     --train_so \
+#     --seed 20 \
+#     --save_steps 2000
+
+
+# awesome-train \
+#     $COMMON_ARGS \
+#     --model_name_or_path=finetune/mbert_multilingual_1M-per-lang_finegrained_only_tlm/checkpoint-45000 \
+#     --output_dir=finetune/mbert_multilingual_1M-per-lang_finegrained_only_tlm_continue \
+#     --seed 20 \
+#     --save_steps 2000
+
+
+awesome-train \
+    $COMMON_ARGS \
+    --model_name_or_path=finetune/mbert_multilingual_1M-per-lang_finegrained_only_tlm_continue/checkpoint-290000 \
+    --output_dir=finetune/mbert_multilingual_1M-per-lang_finegrained_only_tlm_continue_add_so_lr5e-6 \
+    --train_so \
+    --seed 30 \
+    --save_steps 200 \
+    --max_steps 20000 \
+    --learning_rate 5e-6
+
