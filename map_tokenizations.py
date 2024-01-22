@@ -28,3 +28,10 @@ def map_tokenization(granular_alignment, src_token_mapping, trg_token_mapping):
         alignment.append(list(mapped_alignment))
         alignment_set.add(mapped_alignment)
     return alignment
+
+def batch_granularize_tokenization(coarse_tokenizations, tokenizer):
+    tokenizations_and_mappings = [granularize_tokenization(coarse_tokenization, tokenizer) for coarse_tokenization in coarse_tokenizations]
+    return list(zip(*tokenizations_and_mappings))
+
+def batch_map_tokenization(granular_alignments, src_token_mappings, trg_token_mappings):
+    return [map_tokenization(*args) for args in zip(granular_alignments, src_token_mappings, trg_token_mappings)]

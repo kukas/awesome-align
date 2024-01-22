@@ -129,12 +129,12 @@ class AwesomeAligner():
                 # print(ids_src.shape, ids_tgt.shape, "total tokens per call:", ids_src.shape[0] * ids_src.shape[1])
                 word_aligns_list = self.model.get_aligned_word(ids_src, ids_tgt, bpe2word_map_src, bpe2word_map_tgt, self.device, 0, 0, align_layer=self.align_layer, extraction=self.extraction, softmax_threshold=self.softmax_threshold, test=True, output_prob=(output_prob_file is not None))
                 for worker_id, word_aligns, sent_src, sent_tgt in zip(worker_ids, word_aligns_list, sents_src, sents_tgt):
-                    output_str = []
+                    # output_str = []
                     # if output_prob_file is not None:
                     #     output_prob_str = []
                     # if output_word_file is not None:
                     #     output_word_str = []
-                    all_alignments += word_aligns
+                    all_alignments.append(sorted(word_aligns))
                     # for word_align in word_aligns:
                     #     if word_align[0] != -1:
                     #         output_str.append(f'{word_align[0]}-{word_align[1]}')
@@ -154,5 +154,5 @@ class AwesomeAligner():
         #     merge_files(prob_writers)
         # if output_word_file is not None:
         #     merge_files(word_writers)
-        return sorted(all_alignments)
+        return all_alignments
 

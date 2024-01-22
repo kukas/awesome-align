@@ -10,5 +10,6 @@ python-dateutil
 gunicorn
 flask
 flask-cors
+jsonschema
 mosestokenizer
 tokenize_uk
