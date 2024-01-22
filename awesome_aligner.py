@@ -66,7 +66,8 @@ class AwesomeAligner():
             cache_dir=cache_dir,
         )
 
-        # word_align(args, model, tokenizer)
+        self.model.to(self.device)
+        self.model.eval()
 
 
     def process_line(self, line):
@@ -94,7 +95,6 @@ class AwesomeAligner():
         worker_id = 0
         return (worker_id, ids_src[0], ids_tgt[0], bpe2word_map_src, bpe2word_map_tgt, sent_src, sent_tgt) 
 
-
     def align(self, lines, batch_size=1):
         # args, model, tokenizer
 
@@ -104,7 +104,7 @@ class AwesomeAligner():
             ids_tgt = pad_sequence(ids_tgt, batch_first=True, padding_value=self.tokenizer.pad_token_id)
             return worker_ids, ids_src, ids_tgt, bpe2word_map_src, bpe2word_map_tgt, sents_src, sents_tgt
 
-        num_workers = 1
+        num_workers = 0
 
         # offsets = find_offsets(args.data_file, num_workers)
         # dataset = LineByLineTextDataset(tokenizer, file_path=args.data_file, offsets=offsets)
@@ -113,9 +113,6 @@ class AwesomeAligner():
         dataloader = DataLoader(
             dataset, batch_size=batch_size, collate_fn=collate, num_workers=num_workers
         )
-
-        self.model.to(self.device)
-        self.model.eval()
 
         output_prob_file = None
         output_word_file = None
