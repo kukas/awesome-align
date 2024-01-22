@@ -30,7 +30,7 @@ def create_aligner(test_config=None):
 
     app.logger.info("Loading awesome aligner...")
     model_name_or_path = "finetune/mbert_multilingual_1M-per-lang_only_tlm_add_so_lr5e-6/checkpoint-8600"
-    csuk_aligner = AwesomeAligner(model_name_or_path=model_name_or_path)
+    aligner = AwesomeAligner(model_name_or_path=model_name_or_path)
     app.logger.info("Model loaded.")
 
     @app.route("/")
@@ -52,12 +52,12 @@ def create_aligner(test_config=None):
         align = []
         if len(src_tokens) > 0 and len(trg_tokens) > 0:
             line = "{:s} ||| {:s}".format(" ".join(src_tokens), " ".join(trg_tokens))
-            align = csuk_aligner.align(line)
+            align = aligner.align(line)
         return align
 
     # align cs-uk
     @app.route('/align/<path:lang_pair>', methods=['POST'])
-    def align_csuk(lang_pair):
+    def align(lang_pair):
         req_data = request.get_json()
 
         # máme buď tokeny nebo text
