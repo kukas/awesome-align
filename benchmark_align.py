@@ -5,7 +5,7 @@ from timeit import default_timer as timer
 import pandas as pd
 from tqdm import tqdm
 def main():
-    df = pd.read_csv("benchmark_align_2.csv",index_col=0).reset_index(drop=True)
+    # df = pd.read_csv("benchmark_align_optimized.csv",index_col=0).reset_index(drop=True)
 
     print("Loading awesome aligner...")
     model_name_or_path = "finetune/mbert_multilingual_1M-per-lang_only_tlm_add_so_lr5e-6/checkpoint-8600"
@@ -17,14 +17,15 @@ def main():
         aligner.align("hi ||| hi")
     print("Warming up done.")
 
-    results = pd.read_csv("benchmark_align_2.csv",index_col=0).reset_index(drop=True).to_dict("records")
+    # results = pd.read_csv("benchmark_align_optimized.csv",index_col=0).reset_index(drop=True).to_dict("records")
+    results = []
     iters = 50
     for sequence_size in [4,8,16,32,64,128,256,512]:
         for request_size in [1,2,4,8,16,32,64,128]:
             for bs in [1,2,4,8,16,32,64,128]:
-                if ((df.sequence_size==sequence_size) & (df.request_size==request_size) & (df.batch_size==bs)).any():
-                    print(f"Skipping {sequence_size}, {request_size}, {bs}")
-                    continue
+                # if ((df.sequence_size==sequence_size) & (df.request_size==request_size) & (df.batch_size==bs)).any():
+                #     print(f"Skipping {sequence_size}, {request_size}, {bs}")
+                #     continue
                 t = test_aligner(aligner, request_size, bs, sequence_size, iters=iters)
                 results.append({
                     "batch_size": bs,
@@ -33,7 +34,7 @@ def main():
                     "iters": iters,
                     "time": t
                 })
-                pd.DataFrame(results).to_csv("benchmark_align_2.csv")
+                pd.DataFrame(results).to_csv("benchmark_align_optimized.csv")
     return results
 
 def test_aligner(aligner, request_size, batch_size, sequence_size, iters):
