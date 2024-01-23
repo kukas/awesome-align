@@ -29,6 +29,8 @@ def create_aligner(test_config=None):
     app.json.mimetype = "application/json; charset=utf-8"
     CORS(app)
 
+    app.logger.setLevel("INFO")
+
     supported_languages = ["uk", "cs", "fr", "de", "es", "pl", "ru", "en"]
     tokenizers = {}
     for lang in supported_languages:
@@ -207,6 +209,7 @@ def create_aligner(test_config=None):
 
         # TODO catch json errors
         req_data = request.get_json()
+        app.logger.info(f"align {lang_pair} request: {req_data}")
 
         # máme buď tokeny nebo text
         # pokud máme text, tak tokenizujeme, alignujeme tyto tokenizace a vrátíme alignment s tokeny
@@ -244,7 +247,7 @@ def create_aligner(test_config=None):
                 return "Invalid request format", 400
 
         except OutOfMemoryError as e:
-            print("OOM", req_data, e)
+            app.logger.warning(f"Out of memory: {req_data} {e}")
             return "Out of memory", 500
 
         resp = {

@@ -20,6 +20,7 @@ import argparse
 import random
 import itertools
 import os
+import sys
 import shutil
 import tempfile
 
@@ -126,7 +127,9 @@ class AwesomeAligner():
         for batch in dataloader:
             with torch.no_grad():
                 worker_ids, ids_src, ids_tgt, bpe2word_map_src, bpe2word_map_tgt, sents_src, sents_tgt = batch
-                # print(ids_src.shape, ids_tgt.shape, "total tokens per call:", ids_src.shape[0] * ids_src.shape[1])
+
+                print(ids_src.shape, ids_tgt.shape, "total tokens per call:", "source=", ids_src.shape[0] * ids_src.shape[1], "target=", ids_tgt.shape[0] * ids_tgt.shape[1], file=sys.stderr)
+
                 word_aligns_list = self.model.get_aligned_word(ids_src, ids_tgt, bpe2word_map_src, bpe2word_map_tgt, self.device, 0, 0, align_layer=self.align_layer, extraction=self.extraction, softmax_threshold=self.softmax_threshold, test=True, output_prob=(output_prob_file is not None))
                 for worker_id, word_aligns, sent_src, sent_tgt in zip(worker_ids, word_aligns_list, sents_src, sents_tgt):
                     # output_str = []
