@@ -31,101 +31,91 @@ class FlaskAppTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Word alignment server", response.data)
 
-    def test_align_route_with_single_sentence(self):
+    def test_align_with_single_sentence(self):
         payload = {
             "src_text": "This is a test sentence.",
             "trg_text": "Ceci est une phrase de test.",
         }
-        headers = {"Content-Type": "application/json"}
-        response = self.client.post(
-            "/align/en-fr", data=json.dumps(payload), headers=headers
-        )
+        response = self.client.post("/align/en-fr", json=payload)
         self.assertEqual(response.status_code, 200)
         data = json.loads(response.data)
         self.assertIn("alignment", data)
-        self.assertIsInstance(data["alignment"], list)
+        # check the expected dummy output
+        self.assertListEqual(
+            data["alignment"], [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]
+        )
         self.assertIn("src_tokens", data)
         expected_src_tokens = ["This", "is", "a", "test", "sentence", "."]
         self.assertListEqual(data["src_tokens"], expected_src_tokens)
         self.assertIn("trg_tokens", data)
+        expected_trg_tokens = ["Ceci", "est", "une", "phrase", "de", "test", "."]
+        self.assertListEqual(data["trg_tokens"], expected_trg_tokens)
 
-    def test_align_route_with_batch_sentence(self):
+    def test_align_with_batch_sentence(self):
+        N = 20
         payload = {
-            "src_text": ["This is a test sentence.", "This is a test sentence."],
-            "trg_text": [
-                "Ceci est une phrase de test.",
-                "Ceci est une phrase de test.",
-            ],
+            "src_text": ["This is a test sentence."] * N,
+            "trg_text": ["Ceci est une phrase de test."] * N,
         }
-        headers = {"Content-Type": "application/json"}
-        response = self.client.post(
-            "/align/en-fr", data=json.dumps(payload), headers=headers
-        )
+        response = self.client.post("/align/en-fr", json=payload)
         self.assertEqual(response.status_code, 200)
         data = json.loads(response.data)
         self.assertIn("alignment", data)
         self.assertIsInstance(data["alignment"], list)
-        self.assertEqual(len(data["alignment"]), 2)
+        self.assertEqual(len(data["alignment"]), N)
         self.assertIn("src_tokens", data)
         expected_src_tokens = ["This", "is", "a", "test", "sentence", "."]
         self.assertListEqual(data["src_tokens"][0], expected_src_tokens)
         self.assertIn("trg_tokens", data)
 
-    def test_align_route_with_batch_tokenized_sentences(self):
+    def test_align_with_batch_tokenized_sentences(self):
+        N = 20
         payload = {
-            "src_tokens": [["hello", "world"], ["hello", "world"]],
-            "trg_tokens": [["hola", "mundo"], ["hola", "mundo"]],
+            "src_tokens": [["hello", "world"]]*N,
+            "trg_tokens": [["hola", "mundo"]]*N,
         }
-        headers = {"Content-Type": "application/json"}
-        response = self.client.post(
-            "/align/en-es", data=json.dumps(payload), headers=headers
-        )
+        response = self.client.post("/align/en-es", json=payload)
         self.assertEqual(response.status_code, 200)
         data = json.loads(response.data)
         self.assertIn("alignment", data)
         self.assertIsInstance(data["alignment"], list)
-        self.assertEqual(len(data["alignment"]), 2)
+        self.assertEqual(len(data["alignment"]), N)
         self.assertIn("src_tokens", data)
         self.assertListEqual(data["src_tokens"][0], payload["src_tokens"][0])
         self.assertIn("trg_tokens", data)
         self.assertListEqual(data["trg_tokens"][0], payload["trg_tokens"][0])
 
-    def test_align_route_with_single_tokenized_sentence(self):
-        payload = {
-            "src_tokens": ["he-llo", "wor-ld"],
-            "trg_tokens": ["hola", "mundo"]
-        }
-        headers = {"Content-Type": "application/json"}
-        response = self.client.post(
-            "/align/en-es", data=json.dumps(payload), headers=headers
-        )
+    def test_align_with_single_tokenized_sentence(self):
+        payload = {"src_tokens": ["he-llo", "wor-ld"], "trg_tokens": ["hola", "mundo"]}
+        response = self.client.post("/align/en-es", json=payload)
         self.assertEqual(response.status_code, 200)
         data = json.loads(response.data)
         self.assertIn("alignment", data)
-        self.assertIsInstance(data["alignment"], list)
-        self.assertListEqual(data["alignment"],  [[0, 0], [0, 1]])
+        self.assertListEqual(data["alignment"], [[0, 0], [0, 1]])
         self.assertIn("src_tokens", data)
         self.assertListEqual(data["src_tokens"], payload["src_tokens"])
         self.assertIn("trg_tokens", data)
         self.assertListEqual(data["trg_tokens"], payload["trg_tokens"])
 
-    def test_align_route_with_invalid_language_pair(self):
+    def test_align_with_invalid_language_pair(self):
         payload = {
             "src_text": "This is a test sentence.",
             "trg_text": "Ceci est une phrase de test.",
         }
-        headers = {"Content-Type": "application/json"}
-        response = self.client.post(
-            "/align/invalid-lang", data=json.dumps(payload), headers=headers
-        )
+        response = self.client.post("/align/invalid-lang", json=payload)
         self.assertEqual(response.status_code, 400)
 
-    def test_align_route_with_invalid_request_format(self):
+    def test_align_with_invalid_request_format(self):
         payload = {"invalid_key": "This is an invalid request format."}
-        headers = {"Content-Type": "application/json"}
-        response = self.client.post(
-            "/align/en-fr", data=json.dumps(payload), headers=headers
-        )
+        response = self.client.post("/align/en-fr", json=payload)
+        self.assertEqual(response.status_code, 400)
+
+    def test_align_with_empty_sentence(self):
+        payload = {"src_tokens": [], "trg_tokens": []}
+        response = self.client.post("/align/en-es", json=payload)
+        self.assertEqual(response.status_code, 400)
+        payload = {"src_tokens": "", "trg_tokens": "fefefe"}
+        response = self.client.post("/align/en-es", json=payload)
         self.assertEqual(response.status_code, 400)
 
 
