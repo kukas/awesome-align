@@ -13,6 +13,8 @@ import sys
 import re
 from pprint import pprint
 
+from torch.cuda import OutOfMemoryError
+
 from data.parallel.tokenize import get_tokenizer
 from awesome_aligner import AwesomeAligner
 from map_tokenizations import batch_map_tokenization, batch_granularize_tokenization
@@ -209,37 +211,41 @@ def create_aligner(test_config=None):
         # máme buď tokeny nebo text
         # pokud máme text, tak tokenizujeme, alignujeme tyto tokenizace a vrátíme alignment s tokeny
         # pokud máme tokeny, tak granularizujeme, alignujeme granulární tokenizace a mapujeme granulární tokeny na původní tokeny
+        try:
+            if request_is_text(req_data):
+                src_text = req_data["src_text"]
+                trg_text = req_data["trg_text"]
+                alignments, src_tokens, trg_tokens = handle_text_batch(
+                    [src_text], [trg_text], src_tokenizer, trg_tokenizer
+                )
+                alignments = alignments[0]
+                src_tokens = src_tokens[0]
+                trg_tokens = trg_tokens[0]
+            elif request_is_tokens(req_data):
+                src_tokens = req_data["src_tokens"]
+                trg_tokens = req_data["trg_tokens"]
+                alignments = handle_token_batch(
+                    [src_tokens], [trg_tokens], src_tokenizer, trg_tokenizer
+                )
+                alignments = alignments[0]
+            elif request_is_text_batch(req_data):
+                src_text = req_data["src_text"]
+                trg_text = req_data["trg_text"]
+                alignments, src_tokens, trg_tokens = handle_text_batch(
+                    src_text, trg_text, src_tokenizer, trg_tokenizer
+                )
+            elif request_is_tokens_batch(req_data):
+                src_tokens = req_data["src_tokens"]
+                trg_tokens = req_data["trg_tokens"]
+                alignments = handle_token_batch(
+                    src_tokens, trg_tokens, src_tokenizer, trg_tokenizer
+                )
+            else:
+                return "Invalid request format", 400
 
-        if request_is_text(req_data):
-            src_text = req_data["src_text"]
-            trg_text = req_data["trg_text"]
-            alignments, src_tokens, trg_tokens = handle_text_batch(
-                [src_text], [trg_text], src_tokenizer, trg_tokenizer
-            )
-            alignments = alignments[0]
-            src_tokens = src_tokens[0]
-            trg_tokens = trg_tokens[0]
-        elif request_is_tokens(req_data):
-            src_tokens = req_data["src_tokens"]
-            trg_tokens = req_data["trg_tokens"]
-            alignments = handle_token_batch(
-                [src_tokens], [trg_tokens], src_tokenizer, trg_tokenizer
-            )
-            alignments = alignments[0]
-        elif request_is_text_batch(req_data):
-            src_text = req_data["src_text"]
-            trg_text = req_data["trg_text"]
-            alignments, src_tokens, trg_tokens = handle_text_batch(
-                src_text, trg_text, src_tokenizer, trg_tokenizer
-            )
-        elif request_is_tokens_batch(req_data):
-            src_tokens = req_data["src_tokens"]
-            trg_tokens = req_data["trg_tokens"]
-            alignments = handle_token_batch(
-                src_tokens, trg_tokens, src_tokenizer, trg_tokenizer
-            )
-        else:
-            return "Invalid request format", 400
+        except OutOfMemoryError as e:
+            print("OOM", req_data, e)
+            return "Out of memory", 500
 
         resp = {
             "alignment": alignments,
