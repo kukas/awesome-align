@@ -4,7 +4,6 @@ from flask import Flask
 from flask import request
 from flask import Response
 from flask import jsonify
-from flask_cors import CORS
 
 import jsonschema
 from jsonschema.validators import Draft202012Validator
@@ -21,13 +20,11 @@ from map_tokenizations import batch_map_tokenization, batch_granularize_tokeniza
 
 # align_models_path = os.path.join(fast_align_dir, 'models')
 
-
 def create_aligner(test_config=None):
     # create and configure the app
     app = Flask(__name__)
     app.json.ensure_ascii = False
     app.json.mimetype = "application/json; charset=utf-8"
-    CORS(app)
 
     app.logger.setLevel("INFO")
 
@@ -119,7 +116,6 @@ def create_aligner(test_config=None):
     @app.route("/")
     def index():
         response = Response()
-        response.headers["Access-Control-Allow-Origin"] = "*"
         return response
 
     # info page
