@@ -12,4 +12,4 @@ flask
 flask-cors
 jsonschema
 mosestokenizer
-tokenize_uk
+tokenize_uk @ git+https://github.com/kukas/tokenize-uk.git

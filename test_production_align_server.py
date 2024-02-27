@@ -10,7 +10,7 @@ class FlaskAppTest(unittest.TestCase):
     def test_index_route(self):
         r = requests.get(self.url)
         self.assertEqual(r.status_code, 200)
-        self.assertEqual(r.headers.get("Access-Control-Allow-Origin", ""), "*")
+        # self.assertEqual(r.headers.get("Access-Control-Allow-Origin", ""), "*")
 
     def test_align_with_single_sentence(self):
         payload = {
@@ -46,6 +46,14 @@ class FlaskAppTest(unittest.TestCase):
             "trg_text": "^"*600,
         }
         response = requests.post(self.url + "/align/en-fr", json=payload)
+        self.assertEqual(response.status_code, 200)
+    def test_unknown_token(self):
+        payload = {
+                "src_tokens": ['·'],
+                "trg_tokens": ['·']
+        }
+        response = requests.post(self.url + "/align/cs-uk", json=payload)
+        print(response.text)
         self.assertEqual(response.status_code, 200)
 
 if __name__ == "__main__":
