@@ -53,8 +53,57 @@ class FlaskAppTest(unittest.TestCase):
                 "trg_tokens": ['·']
         }
         response = requests.post(self.url + "/align/cs-uk", json=payload)
+        self.assertEqual(response.status_code, 200)
+    def test_empty_tokens(self):
+        payload = {
+                "src_tokens": ['ahoj'],
+                "trg_tokens": []
+        }
+        response = requests.post(self.url + "/align/cs-uk", json=payload)
         print(response.text)
         self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("alignment", data)
+        self.assertIsInstance(data["alignment"], list)
+        self.assertListEqual(data["alignment"], [])
+        self.assertIn("src_tokens", data)
+        expected_src_tokens = ['ahoj']
+        self.assertListEqual(data["src_tokens"], expected_src_tokens)
+        self.assertIn("trg_tokens", data)
+        expected_trg_tokens = []
+        self.assertListEqual(data["trg_tokens"], expected_trg_tokens)
+    def test_empty_text(self):
+        payload = {
+                "src_text": "",
+                "trg_text": "hello"
+        }
+        response = requests.post(self.url + "/align/cs-uk", json=payload)
+        print(response.text)
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("alignment", data)
+        self.assertIsInstance(data["alignment"], list)
+        self.assertListEqual(data["alignment"], [])
+        self.assertIn("src_tokens", data)
+        expected_src_tokens = []
+        self.assertListEqual(data["src_tokens"], expected_src_tokens)
+        self.assertIn("trg_tokens", data)
+        expected_trg_tokens = ["hello"]
+        self.assertListEqual(data["trg_tokens"], expected_trg_tokens)
+    def test_empty_tokens_batch(self):
+        payload = {
+                "src_tokens": [['ahoj'], ['ahoj'], [""]],
+                "trg_tokens": [["hello"], [], ["hello"]]
+        }
+        response = requests.post(self.url + "/align/cs-uk", json=payload)
+        print(response.text)
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("alignment", data)
+        self.assertIsInstance(data["alignment"], list)
+        self.assertListEqual(data["alignment"], [[[0,0]],[],[]])
+
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -52,12 +52,10 @@ def create_aligner(test_config=None):
                 "src_tokens": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "minItems": 1,
                 },
                 "trg_tokens": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "minItems": 1,
                 },
             },
             "required": ["src_tokens", "trg_tokens"],

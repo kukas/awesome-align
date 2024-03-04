@@ -706,6 +706,9 @@ class BertForMaskedLM(BertPreTrainedModel):
 
             for idx, (attention, b2w_src, b2w_tgt) in enumerate(zip(attention_probs_inter, bpe2word_map_src, bpe2word_map_tgt)):
                 aligns = set() if not output_prob else dict()
+                word_aligns.append(aligns)
+                if not b2w_src or not b2w_tgt:
+                    continue
                 non_zeros = torch.nonzero(attention)
                 for i, j in non_zeros:
                     word_pair = (b2w_src[i], b2w_tgt[j])
@@ -717,7 +720,6 @@ class BertForMaskedLM(BertPreTrainedModel):
                             aligns[word_pair] = max(aligns[word_pair], prob)
                     else:
                         aligns.add(word_pair)
-                word_aligns.append(aligns)
 
         if test:
             return word_aligns
