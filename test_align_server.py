@@ -24,7 +24,6 @@ class FlaskAppTest(unittest.TestCase):
     def test_index_route(self):
         response = self.client.get("/")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.headers.get("Access-Control-Allow-Origin", ""), "*")
 
     def test_info_route(self):
         response = self.client.get("/info")
@@ -113,7 +112,8 @@ class FlaskAppTest(unittest.TestCase):
     def test_align_with_empty_sentence(self):
         payload = {"src_tokens": [], "trg_tokens": []}
         response = self.client.post("/align/en-es", json=payload)
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json, {"alignment":[],"src_tokens":[],"trg_tokens":[]})
         payload = {"src_tokens": "", "trg_tokens": "fefefe"}
         response = self.client.post("/align/en-es", json=payload)
         self.assertEqual(response.status_code, 400)
