@@ -28,13 +28,27 @@ def create_aligner(test_config=None):
 
     app.logger.setLevel("INFO")
 
-    supported_languages = ["uk", "cs", "fr", "de", "es", "pl", "ru", "en"]
+    # finetuned languages
+    # supported_languages = ["uk", "cs", "fr", "de", "es", "pl", "ru", "en"]
+    # pretrained languages
+    supported_languages = [
+        "af", "sq", "ar", "an", "hy", "ast", "az", "ba", "eu", "bar", "be", "bn", 
+        "bpy", "bs", "br", "bg", "my", "ca", "ceb", "ce", "zh", "zh", "cv", "hr", 
+        "cs", "da", "nl", "en", "et", "fi", "fr", "gl", "ka", "de", "el", "gu", 
+        "ht", "he", "hi", "hu", "is", "io", "id", "ga", "it", "ja", "jv", "kn", 
+        "kk", "ky", "ko", "la", "lv", "lt", "lmo", "nds", "lb", "mk", "mg", "ms", 
+        "ml", "mr", "min", "ne", "new", "nb", "nn", "oc", "fa", "pms", "pl", "pt", 
+        "pa", "ro", "ru", "sco", "sr", "sh", "scn", "sk", "sl", "azb", "es", "su", 
+        "sw", "sv", "tl", "tg", "ta", "tt", "te", "tr", "uk", "ur", "uz", "vi", 
+        "vo", "war", "cy", "fy", "pnb", "yo", "th", "mn"
+    ]
+
     tokenizers = {}
     for lang in supported_languages:
         tokenizers[lang] = get_tokenizer(lang)
 
     if test_config is not None:
-        model_name_or_path = "dummy_model"
+        model_name_or_path = "dummy_model"co
         aligner = test_config["aligner"]
     else:
         app.logger.info("Loading awesome aligner...")

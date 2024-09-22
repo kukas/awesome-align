@@ -4,8 +4,8 @@ import tqdm
 import mosestokenizer
 import tokenize_uk
 
-moses_langs = ["cs", "fr", "de", "es", "pl", "ru", "en"]
-
+moses_langs = ["ca","cs","de","el","en","es","fi","fr","hu","is","it","lv","nl","pl","pt","ro","ru","sk","sl","sv","ta"]
+tokenizers = {}
 
 def get_tokenizer(language):
     """
@@ -20,22 +20,28 @@ def get_tokenizer(language):
     Raises:
         ValueError: If the specified language is not supported.
     """
-    if language == "uk":
-        return tokenize_uk.tokenize_words
-    elif language in moses_langs:
+    def _moses_factory(language):
         # Turn off html escaping
-        moses = mosestokenizer.MosesTokenizer(language, no_escape=True)
+        if language in tokenizers:
+            moses = tokenizers[language]
+        else:
+            moses = mosestokenizer.MosesTokenizer(language, no_escape=True)
+            tokenizers[language] = moses
 
         def _tokenize(line):
             output = moses(line)
             # Replace @-@ with -, Moses adds the @ symbols because of aggressive hyphen splitting
             output = [x if x != "@-@" else "-" for x in output]
             return output
-
+        
         return _tokenize
-    else:
-        raise ValueError(f"Unknown language {language}")
 
+    if language == "uk":
+        return tokenize_uk.tokenize_words
+    elif language in moses_langs:
+        return _moses_factory(language)
+    else:
+        return _moses_factory("en")  # Default to English if the language is not supported
 
 def main():
     parser = argparse.ArgumentParser()
